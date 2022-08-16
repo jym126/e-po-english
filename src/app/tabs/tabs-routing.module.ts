@@ -20,6 +20,18 @@ const routes: Routes = [
         loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
       },
       {
+        path: 'tab4',
+        loadChildren: () => import('../tab4/tab4.module').then(m => m.Tab4PageModule)
+      },
+      {
+      path: 'crear-tarea',
+      loadChildren: () => import('../pages/crear-tarea/crear-tarea.module').then(m => m.CrearTareaPageModule)
+    },
+    {
+      path: 'cal-modal',
+      loadChildren: () => import('../pages/cal-modal/cal-modal.module').then(m => m.CalModalPageModule)
+    },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'

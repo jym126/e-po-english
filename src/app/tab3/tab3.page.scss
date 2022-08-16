@@ -1,0 +1,16 @@
+ion-avatar { 
+    width: fit-content;
+    margin: 0%;
+    padding: 0%;
+    img {
+    width:110px !important;  
+    height : 110px !important;
+    }
+}
+
+
+ion-card.ion-color .ion-inherit-color, ion-card-header.ion-color .ion-inherit-color {
+    color: rgb(239, 243, 29);
+    margin-right: 0%;
+    padding-right: 0%;
+}

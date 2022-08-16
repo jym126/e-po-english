@@ -1,17 +1,44 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 1
+    <ion-title color="tertiary">
+      Tareas
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-label style="font-size: 20px" color="primary">Lista de tareas</ion-label>
+  <ion-list *ngFor="let item of tareasAlmacenadas; let i = index"  (click)="check(item)">
+    <ion-item id="{{item.id}}">
+      <ion-icon slot="start" name="document-outline" color="success"></ion-icon>
+      {{item.titulo}}: {{item.descripcion}}
+      <ion-icon id="date + {{item.id}}" slot="end" name="time-outline" value="date">
+      </ion-icon>
+      <ion-checkbox slot="start" color="secondary" [(ngModel)]="item.isChecked" style="position: relative"></ion-checkbox>
+      <ion-icon color="danger" slot="end" name="trash" (click)="presentAlertConfirm(item.id, item.titulo)"></ion-icon>
+    </ion-item>
+    
+    <ion-popover trigger="date + {{item.id}}" show-backdrop="false" [dismissOnSelect]="false">
+      <ng-template>
+      <ion-datetime
+                #datetime
+                [(ngModel)]="fullDate"
+                [showDefaultButtons]="true"
+                doneText="Ok"
+                cancelText="Cancelar"
+                clearText="Clear"
+                (ionChange)="notifications(fullDate, item.titulo, item.descripcion)"
+                > <span slot="time-label">Hora</span>
+      </ion-datetime>
+  </ng-template>
+  </ion-popover>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  </ion-list>
+  
+  <ion-row>
+    <ion-col size="12" style="text-align:center">
+        <ion-button size="medium" [routerLink]="['/crear-tarea']">Añadir Tarea</ion-button>
+    </ion-col>
+  </ion-row>
+
 </ion-content>

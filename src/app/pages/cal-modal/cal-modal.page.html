@@ -1,0 +1,26 @@
+
+  <ion-content>
+    <ion-item>
+      <ion-label position="stacked">Título</ion-label>
+      <ion-input tpye="text" [(ngModel)]="event.title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Descripción</ion-label>
+      <ion-input type="text" [(ngModel)]="event.desc"></ion-input>
+    </ion-item>
+   
+    <ion-datetime
+              #datetime
+              displayFormat="DD-MMM-YYYY"
+              locale="es-ES"
+              [firstDayOfWeek]="1"
+              [showDefaultButtons]="true"
+              cancelText="Cancelar"
+              doneText="ok"
+              (ionChange) = "onTimeSelected($event)"
+              >
+              <span slot="title">Mi Calendario</span>
+              <span slot="time-label">Hora</span>
+            </ion-datetime>
+
+  </ion-content>

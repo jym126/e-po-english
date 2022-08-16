@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-icon slot="start" name="return-up-back-outline"  [routerLink]="['/tabs/tab3']" size="large"></ion-icon>
+    <ion-title>Contactos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col size="12" style="text-align: center">
+
+    <ion-title color="primary">Añadir contactos</ion-title>
+
+<form [formGroup] = "contactos" (ngSubmit)="onSubmit()">
+  <ion-item>
+    <ion-label position="floating">Nombre <ion-text color="danger">*</ion-text></ion-label>
+    <ion-input required formControlName="nombre" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Apellidos <ion-text color="danger">*</ion-text></ion-label>
+    <ion-input required formControlName="apellidos" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Dirección <ion-text color="danger">*</ion-text></ion-label>
+    <ion-input required formControlName="direccion" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">teléfono <ion-text color="danger">*</ion-text></ion-label>
+    <ion-input required formControlName="telefono" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">E-Mail <ion-text color="danger">*</ion-text></ion-label>
+    <ion-input required formControlName="email" type="text"></ion-input>
+  </ion-item>
+    <ion-input type="hidden" value="/src/assets/contactos/{{contactos.value.id}}"></ion-input>
+  <ion-button type="submit" [disabled]="contactos.invalid">
+    Guardar
+  </ion-button>
+</form>
+</ion-col>
+</ion-row>
+
+</ion-content>

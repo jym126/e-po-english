@@ -1,0 +1,24 @@
+:host ::ng-deep {
+    .monthview-container {
+        height: auto !important;
+    }
+ 
+    .event-detail-container {
+        display: none;
+    }
+    .weekview-allday-table{
+        display: none;
+    }
+        
+    .weekview-normal-event-container{
+    margin-top: 37px;
+    }
+
+    .monthview-allday-table{
+        display: none;
+    }
+        
+    .monthview-normal-event-container{
+    margin-top: 37px;
+    }
+}
