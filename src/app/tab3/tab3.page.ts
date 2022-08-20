@@ -1,8 +1,8 @@
+/* eslint-disable @typescript-eslint/prefer-for-of */
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
-import { Contactos } from '../modelos/contactos';
+import { ActionSheetController, AlertController } from '@ionic/angular';
 import { ContactosService } from '../servicios/contactos.service';
+import { ImageService } from '../servicios/image.service';
 
 
 @Component({
@@ -12,15 +12,23 @@ import { ContactosService } from '../servicios/contactos.service';
 })
 export class Tab3Page implements OnInit {
 
-  misContactos: Contactos[] = [];
+  isLoading = false;
+
+  imagePickerOptions = {
+    maximumImagesCount: 1,
+    quality: 50
+  };
 
 
     constructor(private sContactos: ContactosService,
-                private alertController: AlertController) {}
+                private alertController: AlertController,
+                public actionSheetController: ActionSheetController,
+                private sImagenes: ImageService) {}
 
   get contactosAlmacenados() {
     return this.sContactos.getLocalContactos;
   }
+
   ngOnInit() {
     // this.getContactos();
   }
@@ -45,6 +53,10 @@ export class Tab3Page implements OnInit {
     });
 
     await alert.present();
+  }
+
+  borrarImagen(id) {
+    this.sImagenes.borrarImagen(id);
   }
 
 }

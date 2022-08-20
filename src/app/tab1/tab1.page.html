@@ -14,7 +14,7 @@
       {{item.titulo}}: {{item.descripcion}}
       <ion-icon id="date + {{item.id}}" slot="end" name="time-outline" value="date">
       </ion-icon>
-      <ion-checkbox slot="start" color="secondary" [(ngModel)]="item.isChecked" style="position: relative"></ion-checkbox>
+      <ion-checkbox id="c{{item.id}}" slot="start" color="secondary" [(ngModel)]="item.isChecked" style="position: relative"></ion-checkbox>
       <ion-icon color="danger" slot="end" name="trash" (click)="presentAlertConfirm(item.id, item.titulo)"></ion-icon>
     </ion-item>
     

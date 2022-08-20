@@ -16,13 +16,13 @@
   </ion-row>
 
   <ion-list *ngFor="let item of contactosAlmacenados">
-    <ion-card color="tertiary">
+    <ion-card color="tertiary" style="border-radius: 15px">
       <ion-card-content>
       <ion-label color="primary">ID: {{item.id}}</ion-label>
         <ion-row class="ion-no-border">
           <ion-col size="4">
             <ion-avatar size="large">
-              <img src="../../assets/contactos/{{item.nombre + item.id | lowercase}}.jpg">
+              <img  src="{{item.imagen}}">
             </ion-avatar><br><br>
           </ion-col>
           <ion-col size="8">

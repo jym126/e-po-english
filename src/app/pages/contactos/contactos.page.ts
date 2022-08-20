@@ -1,7 +1,10 @@
+/* eslint-disable @typescript-eslint/prefer-for-of */
 import { Component, OnInit } from '@angular/core';
 import {Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
 import { ContactosService } from 'src/app/servicios/contactos.service';
+import { ImageService } from 'src/app/servicios/image.service';
+
+
 
 @Component({
   selector: 'app-contactos',
@@ -12,16 +15,20 @@ export class ContactosPage implements OnInit {
 
   contactos: FormGroup;
 
+  imgRes: any;
+  options: any;
+  imagen = ['assets/contactos/noimagen.jpg'];
 
   constructor(private fb: FormBuilder,
-              private router: Router,
-              private sContactos: ContactosService) {
+              private sContactos: ContactosService,
+              private sImagen: ImageService) {
                 this.contactos = this.fb.group({
                   nombre: ['', Validators.required],
                   apellidos: ['', Validators.required],
                   direccion: ['', Validators.required],
                   email: ['', Validators.required],
-                  telefono: ['', Validators.required]
+                  telefono: ['', Validators.required],
+                  imagen:['']
                 });
     }
 
@@ -33,8 +40,9 @@ export class ContactosPage implements OnInit {
     this.sContactos.guardarContacto(contacto);
   }
 
-  prueba() {
-    this.router.navigateByUrl('tabs/tab3');
-  }
+captura() {
+  this.sImagen.capturaImagen().then(imagen => {  this.imagen.unshift(imagen);
+    this.contactos.value.imagen = imagen;});
+}
 
 }

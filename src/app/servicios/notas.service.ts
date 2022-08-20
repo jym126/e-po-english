@@ -5,6 +5,7 @@
 import { Injectable } from '@angular/core';
 import { Notas } from '../modelos/notas';
 import { Storage } from '@ionic/storage-angular';
+import { ImageService } from './image.service';
 
 @Injectable({
   providedIn: 'root'

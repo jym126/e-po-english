@@ -12,6 +12,7 @@ import { Storage } from '@ionic/storage-angular';
 export class TareasService {
 
   tarea: Tareas[] = [];
+  checked = [];
 
   private _storage: Storage | null = null;
 
@@ -23,10 +24,15 @@ export class TareasService {
     return [...this.tarea];
    }
 
+   get getChecked() {
+    return[...this.checked];
+   }
+
   async init() {
     const storage = await this.storage.create();
     this._storage = storage;
     this.listaTareas();
+    this.listaChecks();
   }
 
   guardarTarea(t: Tareas) {
@@ -47,6 +53,19 @@ export class TareasService {
     const tareas = await this._storage.get('tareas');
     this.tarea = tareas || [];
     return this.tarea;
+  }
+
+  guardarCheck(id, estado) {
+    this.checked[id] = estado;
+    this._storage.set('checks', this.checked);
+    // console.log(this.checked);
+    return this.checked;
+  }
+
+  async listaChecks() {
+    const check = await this._storage.get('checks');
+    this.checked = check || [];
+    return this.checked;
   }
 
 

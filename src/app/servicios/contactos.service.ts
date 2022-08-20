@@ -17,6 +17,7 @@ export class ContactosService {
   contacto: Contactos[] = [];
   private _storage: Storage | null = null;
 
+
   private url: string = environment.url;
 
 
@@ -40,15 +41,15 @@ export class ContactosService {
     this.listaContactos();
   }
 
-  guardarContacto(t: Contactos) {
-    if(t.id === undefined) {
-      const maxId = this.contacto.reduce((max, t) => t.id > max? t.id : max, -1);
-      const newContacto = {id: maxId + 1, nombre: t.nombre, apellidos: t.apellidos, telefono: t.telefono, direccion: t.direccion, email: t.email};
+  guardarContacto(c: Contactos) {
+    if(c.id === undefined) {
+      const maxId = this.contacto.reduce((max, c) => c.id > max? c.id : max, -1);
+      const newContacto = {id: maxId + 1, nombre: c.nombre, apellidos: c.apellidos, telefono: c.telefono, direccion: c.direccion, email: c.email, imagen: c.imagen};
       this.contacto.push(newContacto);
     }else{
-      this.borrarContacto(t.id);
-      this.contacto.push(t);
-      this.contacto.sort((t1, t2) => t1.id < t2.id ? -1 : 1);
+      this.borrarContacto(c.id);
+      this.contacto.push(c);
+      this.contacto.sort((c1, c2) => c1.id < c2.id ? -1 : 1);
     }
     this._storage.set('contactos', this.contacto);
     this.router.navigateByUrl('tabs/tab3');
@@ -63,7 +64,7 @@ export class ContactosService {
 
 
   public borrarContacto(id: number) {
-    this.contacto = this.contacto.filter(t => t.id !== id);
+    this.contacto = this.contacto.filter(c => c.id !== id);
     return this._storage.set('contactos', this.contacto);
 }
 }

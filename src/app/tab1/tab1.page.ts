@@ -4,7 +4,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Tareas } from '../modelos/tareas';
 import { TareasService } from '../servicios/tareas.service';
-import { AlertController, NavController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 import { LocalNotifications } from '@capacitor/local-notifications';
 import { ToastController } from '@ionic/angular';
 
@@ -16,6 +16,7 @@ import { ToastController } from '@ionic/angular';
 export class Tab1Page implements OnInit {
 
   tareas: Tareas[] = [];
+
   estilo =  '';
   @ViewChild('dateTime') dateTime;
 
@@ -29,15 +30,34 @@ export class Tab1Page implements OnInit {
 
   constructor(private sTareas: TareasService,
               private alertController: AlertController,
-              private sTarea: TareasService,
               public toastController: ToastController
-              ) {}
+              ) {
+                this.init();
+              }
 
-  async ngOnInit() {
+  ngOnInit() {
+  }
+
+  //Function para restablecer el estado de los elementos checkbox al reiniciar la app
+  init() {
+    setTimeout(() => {
+      for(let i = 0; i<=this.checked.length; i++){
+        const a: string = i.toString();
+        document.getElementById(a).setAttribute('style',this.checked[i]);
+        if(this.checked[i] !== ''){
+          const checkbox = document.getElementById('c'+a,) as HTMLInputElement | null;
+          checkbox.checked = true;
+        }
+      }
+    }, 500);
   }
 
   get tareasAlmacenadas() {
     return this.sTareas.getLocalTareas;
+  }
+
+  get checked() {
+    return this.sTareas.getChecked;
   }
 
   async presentAlertConfirm(id: number, titulo: string) {
@@ -52,7 +72,7 @@ export class Tab1Page implements OnInit {
         }, {
           text: 'Aceptar',
           handler: () => {
-            this.sTarea.borrarTarea(id);
+            this.sTareas.borrarTarea(id);
           }
         }
       ]
@@ -80,8 +100,9 @@ export class Tab1Page implements OnInit {
 
   check(item) {
     //ternario para tachar tarea realizada
-    item.isChecked ? document.getElementById(item.id).setAttribute('style','text-decoration:line-through') :
-    document.getElementById(item.id).setAttribute('style','');
+    item.isChecked ? this.sTareas.guardarCheck(item.id, 'text-decoration:line-through'):
+    this.sTareas.guardarCheck(item.id, '');
+    document.getElementById(item.id).setAttribute('style',this.checked[item.id]);
     }
 
   async sendToast(){
