@@ -5,8 +5,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Tareas } from '../modelos/tareas';
 import { TareasService } from '../servicios/tareas.service';
 import { AlertController } from '@ionic/angular';
-import { LocalNotifications } from '@capacitor/local-notifications';
-import { ToastController } from '@ionic/angular';
+import { ReminderService } from '../servicios/reminder.service';
 
 @Component({
   selector: 'app-tab1',
@@ -30,7 +29,7 @@ export class Tab1Page implements OnInit {
 
   constructor(private sTareas: TareasService,
               private alertController: AlertController,
-              public toastController: ToastController
+              private reminder: ReminderService
               ) {
                 this.init();
               }
@@ -81,22 +80,10 @@ export class Tab1Page implements OnInit {
     await alert.present();
   }
 
-  // Schedule delayed notification
-  async notifications(date, titulo, descript) {
-    let time = date.toString();
-    time = time.slice(11,16);
-    if(time !== '00:00'){
-    await LocalNotifications.schedule({
-    notifications: [{
-    id: 1,
-    title: titulo,
-    body: descript,
-    schedule: {at: new Date(date)}
-    }]
-    });
-    this.sendToast();
-    }
+  notifications(date, titulo, descript){
+    this.reminder.notifications(date, titulo, descript);
   }
+
 
   check(item) {
     //ternario para tachar tarea realizada
@@ -105,13 +92,5 @@ export class Tab1Page implements OnInit {
     document.getElementById(item.id).setAttribute('style',this.checked[item.id]);
     }
 
-  async sendToast(){
-  //Toast de confirmación
-  const toast = await this.toastController.create({
-  message: 'El recordatorio ha sido añadido.',
-  duration: 2000
-  });
-  toast.present();
 
-  }
   }

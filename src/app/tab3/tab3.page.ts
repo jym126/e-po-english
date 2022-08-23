@@ -1,8 +1,10 @@
 /* eslint-disable @typescript-eslint/prefer-for-of */
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ActionSheetController, AlertController } from '@ionic/angular';
 import { ContactosService } from '../servicios/contactos.service';
 import { ImageService } from '../servicios/image.service';
+import { Tab1Page } from '../tab1/tab1.page';
 
 
 @Component({
@@ -13,6 +15,7 @@ import { ImageService } from '../servicios/image.service';
 export class Tab3Page implements OnInit {
 
   isLoading = false;
+  mail: string;
 
   imagePickerOptions = {
     maximumImagesCount: 1,
@@ -23,7 +26,8 @@ export class Tab3Page implements OnInit {
     constructor(private sContactos: ContactosService,
                 private alertController: AlertController,
                 public actionSheetController: ActionSheetController,
-                private sImagenes: ImageService) {}
+                private sImagenes: ImageService,
+                private router: Router) {}
 
   get contactosAlmacenados() {
     return this.sContactos.getLocalContactos;
@@ -57,6 +61,21 @@ export class Tab3Page implements OnInit {
 
   borrarImagen(id) {
     this.sImagenes.borrarImagen(id);
+  }
+
+  captura() {
+    this.sImagenes.capturaImagen();
+  }
+
+  editarContacto(datos) {
+    this.router.navigate(['../contactos', {data: JSON.stringify(datos)}] );
+    this.sContactos.borrarContacto(datos.id);
+  }
+
+  openMail(mail){
+    const mailto = 'mailto:'+mail+'+?subject=Hola&body=Hola';
+    window.location.href = mailto;
+    return mailto;
   }
 
 }

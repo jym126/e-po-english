@@ -14,23 +14,23 @@
 <form [formGroup] = "contactos" (ngSubmit)="onSubmit()">
   <ion-item>
     <ion-label position="floating">Nombre <ion-text color="danger">*</ion-text></ion-label>
-    <ion-input required formControlName="nombre" type="text"></ion-input>
+    <ion-input required formControlName="nombre" type="text" [(ngModel)]="datos.nombre"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">Apellidos <ion-text color="danger">*</ion-text></ion-label>
-    <ion-input required formControlName="apellidos" type="text"></ion-input>
+    <ion-input required formControlName="apellidos" type="text" [(ngModel)]="datos.apellidos"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">Dirección <ion-text color="danger">*</ion-text></ion-label>
-    <ion-input required formControlName="direccion" type="text"></ion-input>
+    <ion-input required formControlName="direccion" type="text" [(ngModel)]="datos.direccion"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">teléfono <ion-text color="danger">*</ion-text></ion-label>
-    <ion-input required formControlName="telefono" type="text"></ion-input>
+    <ion-input required formControlName="telefono" type="text" [(ngModel)]="datos.telefono"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">E-Mail <ion-text color="danger">*</ion-text></ion-label>
-    <ion-input required formControlName="email" type="text"></ion-input>
+    <ion-input required formControlName="email" type="text" [(ngModel)]="datos.email"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label>Imagen:</ion-label>

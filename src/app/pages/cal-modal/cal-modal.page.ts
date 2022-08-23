@@ -2,6 +2,7 @@ import { Component, AfterViewInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { CalendarMode } from 'ionic2-calendar/calendar';
 import { AgendaService } from 'src/app/servicios/agenda.service';
+import { ReminderService } from 'src/app/servicios/reminder.service';
 
 @Component({
   selector: 'app-cal-modal',
@@ -29,7 +30,8 @@ export class CalModalPage implements AfterViewInit {
 
   modalReady = false;
 
-  constructor(private modalCtrl: ModalController) { }
+  constructor(private modalCtrl: ModalController,
+              private reminder: ReminderService) { }
 
   ngAfterViewInit() {
     setTimeout(() => {
@@ -50,7 +52,7 @@ export class CalModalPage implements AfterViewInit {
     const endTime = (ev.detail.value.slice(11,16));
     this.event.startTime = new Date(ev.detail.value);
     this.event.endHour = endTime;
-    console.log(this.event.startTime);
+    this.reminder.notifications(this.event.startTime, this.event.title, this.event.desc);
 
     this.save();
   }

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import {Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { ContactosService } from 'src/app/servicios/contactos.service';
 import { ImageService } from 'src/app/servicios/image.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 
@@ -13,6 +14,8 @@ import { ImageService } from 'src/app/servicios/image.service';
 })
 export class ContactosPage implements OnInit {
 
+  datos: any;
+
   contactos: FormGroup;
 
   imgRes: any;
@@ -21,6 +24,7 @@ export class ContactosPage implements OnInit {
 
   constructor(private fb: FormBuilder,
               private sContactos: ContactosService,
+              private route: ActivatedRoute,
               private sImagen: ImageService) {
                 this.contactos = this.fb.group({
                   nombre: ['', Validators.required],
@@ -33,6 +37,7 @@ export class ContactosPage implements OnInit {
     }
 
   ngOnInit() {
+    this.datos = JSON.parse(this.route.snapshot.paramMap.get('data'));
   }
 
   onSubmit() {
