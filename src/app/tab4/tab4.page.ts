@@ -25,7 +25,8 @@ export class Tab4Page {
     step: 30 as Step,
     startHour: 6,
     endHour: 20,
-    startingDayWeek: 1
+    startingDayWeek: 1,
+    startingDayMonth: 1
   };
 
   selectedDate: Date;

@@ -40,6 +40,7 @@ export class Tab1Page implements OnInit {
   //Function para restablecer el estado de los elementos checkbox al reiniciar la app
   init() {
     setTimeout(() => {
+      if(this.checked.length > 0){
       for(let i = 0; i<=this.checked.length; i++){
         const a: string = i.toString();
         document.getElementById(a).setAttribute('style',this.checked[i]);
@@ -48,6 +49,7 @@ export class Tab1Page implements OnInit {
           checkbox.checked = true;
         }
       }
+    }
     }, 500);
   }
 
