@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicStorageModule } from '@ionic/storage-angular';
 import { HttpClientModule } from '@angular/common/http';
+import { CallNumber } from '@awesome-cordova-plugins/call-number/ngx';
+
 
 
 @NgModule({
@@ -21,7 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
             IonicStorageModule.forRoot(),
             HttpClientModule
           ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, { provide: LOCALE_ID, useValue: 'es-ES' }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, { provide: LOCALE_ID, useValue: 'es-ES' }, CallNumber],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

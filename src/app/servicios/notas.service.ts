@@ -33,7 +33,7 @@ export class NotasService {
   guardarNota(t: Notas) {
     if(t.id === undefined) {
       const maxId = this.nota.reduce((max, t) => t.id > max? t.id : max, -1);
-      const newNote = {id: maxId + 1, titulo: t.titulo, descripcion: t.descripcion};
+      const newNote = {id: maxId + 1, titulo: t.titulo, descripcion: t.descripcion, imagen: t.imagen};
       this.nota.push(newNote);
     }else{
       this.borrarNota(t.id);

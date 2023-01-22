@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Notas } from '../modelos/notas';
 import { NotasService } from '../servicios/notas.service';
 import { AlertController } from '@ionic/angular';
+import { ImageService } from 'src/app/servicios/image.service';
 
 @Component({
   selector: 'app-tab2',
@@ -10,11 +11,14 @@ import { AlertController } from '@ionic/angular';
 })
 export class Tab2Page {
 
-  nota: Notas = {titulo: '', descripcion: ''};
+  nota = {titulo: '', descripcion: '', imagen: []};
+  imagen = ['assets/contactos/noimagen.jpg'];
+  foto = false;
 
   constructor(private sNotas: NotasService,
               private alertController: AlertController,
-              private sNota: NotasService) {}
+              private sNota: NotasService,
+              private sImagen: ImageService) {}
 
   get notasAlmacenadas() {
     return this.sNotas.getLocalNotas;
@@ -23,6 +27,14 @@ export class Tab2Page {
   guardarNota() {
     this.sNotas.guardarNota(this.nota);
     this.nota.titulo = this.nota.descripcion = '';
+  }
+
+  captura() {
+    this.foto = true;
+    this.sImagen.capturaImagen().then(imagen => {
+      this.imagen.unshift(imagen);
+      //guardar imagen en nota.imagen
+      this.nota.imagen.unshift(imagen);});
   }
 
   async presentAlertConfirm(id: number, titulo: string) {

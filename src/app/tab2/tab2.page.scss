@@ -1,0 +1,39 @@
+.card {
+    text-align: left;
+    background-color: rgb(252, 252, 72);
+    border-radius: 15px;
+}
+
+.trash {
+    size: large;
+     color: red;
+     border: none;
+     justify-content: right;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    font-size: large;
+    color: black;
+    font-style: italic;
+}
+
+.delete {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.title {
+    color: black;
+    font-weight: bold;
+}
+
+ion-img {
+    text-align: left;
+    width: 100px;
+    height: 100px;
+  }

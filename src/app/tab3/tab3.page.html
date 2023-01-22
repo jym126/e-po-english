@@ -21,7 +21,7 @@
       <ion-label color="primary">ID: {{item.id}}</ion-label>
         <ion-row class="ion-no-border">
           <ion-col size="4">
-            <ion-avatar size="large" (click)="captura()">
+            <ion-avatar size="large" (click)="viewPhoto(item.imagen)">
               <img  src="{{item.imagen}}">
             </ion-avatar><br><br>
           </ion-col>
@@ -31,7 +31,8 @@
             Dir.: {{item.direccion}}<br>
             Tel.: {{item.telefono}}<br>
             <ion-icon size="large" color="success" name="create-outline" (click)="editarContacto(item)"></ion-icon>
-            <ion-icon size="large" name="mail-outline" (click)="openMail(item.email)"></ion-icon>
+            <ion-icon class="action" size="large" color="warning" name="mail-outline" (click)="openMail(item.email)"></ion-icon>
+            <ion-icon class="action" size="large" color="light" name="call-outline" (click)="numberCaller(item.telefono)"></ion-icon>
             <ion-icon name="trash" size="large" color="danger" style="float: right" (click)="presentAlertConfirm(item.id, item.nombre)"></ion-icon>
           </ion-col>
         </ion-row>

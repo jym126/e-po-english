@@ -1,10 +1,13 @@
+/* eslint-disable id-blacklist */
 /* eslint-disable @typescript-eslint/prefer-for-of */
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActionSheetController, AlertController } from '@ionic/angular';
 import { ContactosService } from '../servicios/contactos.service';
 import { ImageService } from '../servicios/image.service';
-import { Tab1Page } from '../tab1/tab1.page';
+import { CallNumber } from '@awesome-cordova-plugins/call-number/ngx';
+import { ViewerModalComponent } from 'ngx-ionic-image-viewer';
+import { ModalController } from '@ionic/angular';
 
 
 @Component({
@@ -27,7 +30,9 @@ export class Tab3Page implements OnInit {
                 private alertController: AlertController,
                 public actionSheetController: ActionSheetController,
                 private sImagenes: ImageService,
-                private router: Router) {}
+                private router: Router,
+                private caller: CallNumber,
+                public modalController: ModalController) {}
 
   get contactosAlmacenados() {
     return this.sContactos.getLocalContactos;
@@ -63,8 +68,18 @@ export class Tab3Page implements OnInit {
     this.sImagenes.borrarImagen(id);
   }
 
-  captura() {
-    this.sImagenes.capturaImagen();
+  async viewPhoto(ruta) {
+    const modal = await this.modalController.create({
+      component: ViewerModalComponent,
+      componentProps: {
+        src: ruta
+      },
+      cssClass: 'ion-img-viewer',
+      keyboardClose: true,
+      showBackdrop: true
+    });
+
+    return await modal.present();
   }
 
   editarContacto(datos) {
@@ -76,6 +91,10 @@ export class Tab3Page implements OnInit {
     const mailto = 'mailto:'+mail+'+?subject=Hola&body=Hola';
     window.location.href = mailto;
     return mailto;
+  }
+
+  numberCaller(number: string) {
+    this.caller.callNumber(number, true);
   }
 
 }
