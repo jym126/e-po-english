@@ -7,6 +7,8 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <div class="menu">
+  <ion-menu contentId="create-note">
   <ion-card>
     <ion-card-header>
       <ion-card-title color="secondary">Crear nota</ion-card-title>
@@ -22,30 +24,49 @@
                     placeholder="Descripción..."
                     [(ngModel)]="nota.descripcion"></ion-textarea>
                     <ion-item>
-                      <ion-input class="idInput" type="hidden" value="/src/assets/contactos/{{nota.id}}"></ion-input>
-                      <ion-img src="{{imagen[0]}}" alt="Sin imagen" (click)="captura()"></ion-img>
+                      <ion-input class="idInput" type="hidden"></ion-input>
+                      <ion-img src="{{imagen}}" alt="Sin imagen" (click)="captura()"></ion-img>
                     </ion-item>
     </ion-card-content>
 
     <ion-row>
     <ion-col size="12" style="text-align:center">
+      <ion-menu-toggle>
       <ion-button (click)="guardarNota()" size="small" shape="round">
         Guardar
       </ion-button>
+    </ion-menu-toggle>
     </ion-col>
       </ion-row>
-
-  </ion-card>
+    </ion-card>
+  </ion-menu>
+  <div class="ion-page" id="create-note">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <ion-menu-toggle>
+        <ion-button>Crear nota</ion-button>
+      </ion-menu-toggle>
+    </ion-content>
+  </div>
+</div>
 
   <ion-label style="font-size: 20px; margin-left: 10px;" color="secondary">Notas guardadas</ion-label>
   <ion-list *ngFor="let item of notasAlmacenadas; let i = index">
     <ion-card class="card">
       <ion-card-header>
-        <ion-card-title class="title">{{i+1}} - {{item.titulo}}</ion-card-title>
+        <ion-card-title class="title">{{i+1}} - {{item.titulo | titlecase}}</ion-card-title>
       </ion-card-header>
       <ion-card-content class="content">
-        <img  src="{{item.imagen}}">
-        <ion-icon size="large" name="create-outline" color="tertiary"></ion-icon>
+        <ion-avatar class="imagen" size="large" (click)="viewPhoto(item.imagen)" *ngIf="item.imagen != ''; else noImage">
+          <img class="imagen"  src="{{item.imagen}}">
+        </ion-avatar>
+        <ng-template #noImage>
+          <img class="imagen" src='{{imagen}}'>
+        </ng-template>
         {{item.descripcion}}<br>
     </ion-card-content>
     <span class="delete">

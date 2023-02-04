@@ -22,7 +22,7 @@
 .delete {
     display: flex;
     flex-direction: row;
-    justify-content: end;
+    justify-content: flex-end;
     margin-right: 5px;
     margin-bottom: 5px;
 }
@@ -33,7 +33,14 @@
 }
 
 ion-img {
-    text-align: left;
     width: 100px;
     height: 100px;
   }
+
+.menu{
+    margin-bottom: 40px;
+}
+
+.imagen {
+    margin-right: 10px;
+}

@@ -3,7 +3,7 @@
 export class Notas {
     id?: number;
     titulo: string;
-    imagen?: Imagen[];
+    imagen?: string;
     descripcion: string;
   }
 
