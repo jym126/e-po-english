@@ -8,6 +8,11 @@ ion-popover.popTime {
 }
 
 .task {
-  --background: rgb(252, 248, 215);
+  --background: rgb(140, 250, 176);
   color: blue;
+  box-shadow: 5px 5px rgb(167, 166, 166);
+}
+
+ion-checkbox{
+  color: red;
 }

@@ -53,7 +53,7 @@
     </ion-col>
   </ion-row>
 
-  <calendar
+  <calendar class="calendar"
     [eventSource]="eventSource"
     [calendarMode]="calendar.mode"
     [currentDate]="calendar.currentDate"
@@ -72,7 +72,7 @@
   </calendar>
 
   <ng-template #template let-view="view" let-row="row" let-col="col">
-    <div [class.with-event]="view.dates[row*7+col].events.length">
+    <div class="template" [class.with-event]="view.dates[row*7+col].events.length">
       {{view.dates[row*7+col].label}}
       <div class="indicator-container">
         <div class="event-indicator" *ngFor="let e of view.dates[row*7+col].events"></div>

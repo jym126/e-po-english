@@ -61,13 +61,22 @@
         <ion-card-title class="title">{{i+1}} - {{item.titulo | titlecase}}</ion-card-title>
       </ion-card-header>
       <ion-card-content class="content">
-        <ion-avatar class="imagen" size="large" (click)="viewPhoto(item.imagen)" *ngIf="item.imagen != ''; else noImage">
-          <img class="imagen"  src="{{item.imagen}}">
-        </ion-avatar>
-        <ng-template #noImage>
-          <img class="imagen" src='{{imagen}}'>
-        </ng-template>
-        {{item.descripcion}}<br>
+        <ion-row class="cardContent">
+
+          <ion-col size="3">
+            <ion-avatar class="imagen" size="large" (click)="viewPhoto(item.imagen)" *ngIf="item.imagen != ''; else noImage">
+              <img class="imagen"  src="{{item.imagen}}">
+            </ion-avatar>
+            <ng-template #noImage>
+              <img class="imagen" src='{{imagen}}'>
+            </ng-template>
+          </ion-col>
+
+          <ion-col size="9">
+            {{item.descripcion}}<br>
+          </ion-col>
+          
+        </ion-row>
     </ion-card-content>
     <span class="delete">
     <ion-icon class="trash" name="trash" slot="end" size="large" (click)="presentAlertConfirm(item.id, item.titulo)"></ion-icon>        

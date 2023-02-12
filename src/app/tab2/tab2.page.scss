@@ -2,6 +2,7 @@
     text-align: left;
     background-color: rgb(252, 252, 72);
     border-radius: 15px;
+    box-shadow: 5px 5px rgb(167, 166, 166);
 }
 
 .trash {
@@ -43,4 +44,8 @@ ion-img {
 
 .imagen {
     margin-right: 10px;
+}
+
+.cardContent{
+    width: 100%;
 }
