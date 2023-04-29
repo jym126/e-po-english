@@ -1,17 +1,17 @@
 <ion-header>
   <ion-toolbar>
     <ion-icon slot="start" name="return-up-back-outline"  [routerLink]="['/tabs/tab1']" size="large"></ion-icon>
-    <ion-title>Crear Nueva Tarea</ion-title>
+    <ion-title>Nuevo artículo</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-label style="font-size: large">Tarea:</ion-label>
-  <ion-input type="text" placeholder="Título" [(ngModel)]="tarea.titulo"></ion-input>
-  <ion-input type="text" placeholder="Nombre de la tarea" [(ngModel)]="tarea.descripcion"></ion-input>
+  <ion-input type="text" placeholder="Título" [(ngModel)]="lista.nombre"></ion-input>
+  <ion-input type="text" placeholder="Nombre de la tarea" [(ngModel)]="lista.descripcion"></ion-input>
   <ion-row>
     <ion-col size="12" class="ion-text-center">
-      <ion-button (click)="guardarTarea()" size="small" shape="round">
+      <ion-button (click)="crearLista()" size="small" shape="round">
         Guardar
       </ion-button>
     </ion-col>

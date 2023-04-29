@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  url: '../assets/contactos/contactos.json'
+  url: '../assets/contactos/contactos.json',
+  uriList: 'http://localhost:3000'
 };
 
 /*

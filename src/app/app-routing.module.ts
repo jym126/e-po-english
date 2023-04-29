@@ -17,6 +17,14 @@ const routes: Routes = [
   {
     path: 'contactos',
     loadChildren: () => import('./pages/contactos/contactos.module').then( m => m.ContactosPageModule)
+  },
+  {
+    path: 'lista',
+    loadChildren: () => import('./tab5/tab5.module').then( m => m.Tab5PageModule)
+  },
+  {
+    path: 'crear-lista',
+    loadChildren: () => import('./pages/crear-lista/crear-lista.module').then( m => m.CrearListaPageModule)
   }
 ];
 @NgModule({
