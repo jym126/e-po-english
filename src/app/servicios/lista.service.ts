@@ -25,7 +25,7 @@ export class ListaService {
   }
 
   borrarLista(id: Number) {
-      return this.http.delete(`${this.uri}/delList/${id}`);
+      return this.http.delete(`${this.uri}/deleteList/${id}`);
     }
 
 }
