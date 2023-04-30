@@ -29,13 +29,12 @@ export class Tab5Page implements OnInit {
 
   async actualizarLista(id, cantidad, unidad, nombre, descripcion) {
     const lista = {
-      id: id,
       cantidad: cantidad,
       unidad: unidad,
       nombre: nombre,
       descripcion: descripcion
     }
-    this.listaService.actualizarLista(lista)
+    this.listaService.actualizarLista(lista, id)
     .subscribe(res => {
       if(res['status'] == 200) {
         const alert = this.alertController.create({
