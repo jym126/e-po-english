@@ -1,6 +1,7 @@
 export class Lista {
-    nombre: string;
-    descripcion?: string;
-    cantidad: number;
-    unidad: string;
-  }
+  id?: number;
+  nombre: string;
+  descripcion?: string;
+  cantidad: number;
+  unidad: string;
+}

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { ListaService } from '../servicios/lista.service';
 import { element } from 'protractor';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab5',
@@ -13,7 +14,8 @@ export class Tab5Page implements OnInit {
   listaAlmacenada: any = [];
 
   constructor(private alertController: AlertController,
-              private listaService: ListaService) { }
+              private listaService: ListaService,
+              private router: Router) { }
 
   ngOnInit() {
     this.listas();
@@ -27,21 +29,8 @@ export class Tab5Page implements OnInit {
     console.log(this.listaAlmacenada);
   }
 
-  async actualizarLista(id, cantidad, unidad, nombre, descripcion) {
-    const lista = {
-      cantidad: cantidad,
-      unidad: unidad,
-      nombre: nombre,
-      descripcion: descripcion
-    }
-    this.listaService.actualizarLista(lista, id)
-    .subscribe(res => {
-      if(res['status'] == 200) {
-        const alert = this.alertController.create({
-          message: `Lista ${nombre} actualizada`
-        });
-      }
-    })
+  async actualizarLista(lista) {
+    this.router.navigate(['../pages/crear-lista', {data: JSON.stringify(lista)}] );
   }
 
   async presentListConfirm(id: number, nombre: string) {

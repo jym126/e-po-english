@@ -11,7 +11,7 @@ import { AlertController } from '@ionic/angular';
 })
 export class CrearListaPage implements OnInit {
 
-  lista: Lista = {nombre: '', descripcion: '', cantidad: 1, unidad: 'Ud'};
+  lista: Lista = {id: 0, nombre: '', descripcion: '', cantidad: 1, unidad: 'Ud'};
 
   constructor(private listaService: ListaService,
               private router: Router,
@@ -30,5 +30,16 @@ export class CrearListaPage implements OnInit {
       }
     })
     this.router.navigate(['tabs/tab5']);
+  }
+
+  actualizarLista() {
+    this.listaService.actualizarLista(this.lista, this.lista.id)
+    .subscribe(res => {
+      if(res['status'] == 200) {
+        const alert = this.alertController.create({
+          message: `Lista ${this.lista.nombre} actualizada`
+        });
+      }
+    })
   }
 }
