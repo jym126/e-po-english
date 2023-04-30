@@ -3,6 +3,7 @@ import { AlertController } from '@ionic/angular';
 import { ListaService } from '../servicios/lista.service';
 import { element } from 'protractor';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab5',
@@ -15,7 +16,8 @@ export class Tab5Page implements OnInit {
 
   constructor(private alertController: AlertController,
               private listaService: ListaService,
-              private router: Router) { }
+              private router: Router,
+              private toast: ToastController) { }
 
   ngOnInit() {
     this.listas();
@@ -44,15 +46,16 @@ export class Tab5Page implements OnInit {
           cssClass: 'secondary'
         }, {
           text: 'Aceptar',
-          handler: async() => {
+          handler: () => {
             this.listaService.borrarLista(id)
             .subscribe(async(res) => {
               console.log(res);
               if(res['message'] === 'borrada') {
-                const alert = await this.alertController.create({
+                const toast = await this.toast.create({
                   message: 'Artículo borrado con éxito',
+                  duration: 2000,
                 });
-                await alert.present();
+                toast.present();
               }
             });
           }
