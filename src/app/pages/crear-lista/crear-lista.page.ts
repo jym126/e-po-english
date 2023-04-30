@@ -3,6 +3,7 @@ import { ListaService } from 'src/app/servicios/lista.service';
 import { Lista } from 'src/app/modelos/lista';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-crear-lista',
@@ -11,13 +12,25 @@ import { AlertController } from '@ionic/angular';
 })
 export class CrearListaPage implements OnInit {
 
-  lista: Lista = {id: "", nombre: '', descripcion: '', cantidad: 1, unidad: 'Ud'};
+  data: any;
+
+  lista: Lista = {
+    id: "", 
+    nombre: '', 
+    descripcion: '', 
+    cantidad: 1, 
+    unidad: 'Ud'};
 
   constructor(private listaService: ListaService,
               private router: Router,
-              private alertController: AlertController) { }
+              private alertController: AlertController,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.data = JSON.parse(this.route.snapshot.paramMap.get("data"));
+    if(this.data) {
+      this.lista = this.data;
+    }
   }
 
   crearLista() {

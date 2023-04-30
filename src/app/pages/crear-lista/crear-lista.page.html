@@ -13,7 +13,7 @@
   <ion-input type="text" placeholder="Descripción" [(ngModel)]="lista.descripcion"></ion-input>
   <ion-row>
     <ion-col size="12" class="ion-text-center">
-      <ng-template [ngIf]= "lista.id" [ngIfElse]="elseBlock">
+      <ng-template [ngIf]= "data" [ngIfElse]="elseBlock">
       <ion-button (click)="actualizarLista()" size="small" shape="round">
         Actualizar
       </ion-button>
