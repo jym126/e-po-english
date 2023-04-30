@@ -44,8 +44,17 @@ export class Tab5Page implements OnInit {
           cssClass: 'secondary'
         }, {
           text: 'Aceptar',
-          handler: () => {
-            this.listaService.borrarLista(id);
+          handler: async() => {
+            this.listaService.borrarLista(id)
+            .subscribe(async(res) => {
+              console.log(res);
+              if(res['message'] === 'borrada') {
+                const alert = await this.alertController.create({
+                  message: 'Artículo borrado con éxito',
+                });
+                await alert.present();
+              }
+            });
           }
         }
       ]

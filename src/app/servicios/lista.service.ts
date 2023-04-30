@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Lista } from 'src/app/modelos/lista';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -20,11 +21,12 @@ export class ListaService {
     return this.http.post(`${this.uri}/addList`, lista);
   }
 
-  actualizarLista(lista: Lista, id: String) {
+  actualizarLista(lista: Lista, id: string) {
     return this.http.put(`${this.uri}/updateList/${id}`, lista);
   }
 
-  borrarLista(id: String) {
+  borrarLista(id: string): Observable<any> {
+    console.log(`${this.uri}/deleteList/${id}`);
       return this.http.delete(`${this.uri}/deleteList/${id}`);
     }
 
