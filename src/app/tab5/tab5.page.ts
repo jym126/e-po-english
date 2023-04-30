@@ -28,11 +28,10 @@ export class Tab5Page implements OnInit {
     .subscribe(res => {
       this.listaAlmacenada.push(res);
     });
-    console.log(this.listaAlmacenada);
   }
 
   async actualizarLista(lista) {
-    this.router.navigate(['../pages/crear-lista', {data: JSON.stringify(lista)}] );
+    this.router.navigate(['/crear-lista', {data: JSON.stringify(lista)}] );
   }
 
   async presentListConfirm(id: string, nombre: string) {
@@ -49,7 +48,6 @@ export class Tab5Page implements OnInit {
           handler: () => {
             this.listaService.borrarLista(id)
             .subscribe(async(res) => {
-              console.log(res);
               if(res['message'] === 'borrada') {
                 const toast = await this.toast.create({
                   message: 'Artículo borrado con éxito',
