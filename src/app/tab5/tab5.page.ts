@@ -66,4 +66,12 @@ export class Tab5Page implements OnInit {
     await alert.present();
   }
 
+  doRefresh(event) {
+    window.location.reload();
+    setTimeout(() => {
+      event.target.complete();
+    }, 1500);
+
+  }
+
 }
