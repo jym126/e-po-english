@@ -17,13 +17,15 @@ export class ListaService {
   }
 
   crearLista(lista: Lista) {
+    return this.http.post(`${this.uri}/addList`, lista);
   }
 
-  actualizarLista(id: number) {
-
+  actualizarLista(lista: Lista) {
+    return this.http.put(`${this.uri}/updateList`, lista);
   }
 
   borrarLista(id: Number) {
+      return this.http.delete(`${this.uri}/delList/${id}`);
+    }
 
-  }
 }

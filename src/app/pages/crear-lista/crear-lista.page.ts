@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class CrearListaPage implements OnInit {
 
-  lista: Lista = {nombre: '', descripcion: '', cantidad: 0, unidad: ''};
+  lista: Lista = {nombre: '', descripcion: '', cantidad: 1, unidad: 'Ud'};
 
   constructor(private listaService: ListaService,
               private router: Router) { }

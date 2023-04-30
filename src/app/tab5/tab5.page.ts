@@ -27,10 +27,28 @@ export class Tab5Page implements OnInit {
     console.log(this.listaAlmacenada);
   }
 
-  async presentListConfirm(id: number, titulo: string) {
+  async actualizarLista(id, cantidad, unidad, nombre, descripcion) {
+    const lista = {
+      id: id,
+      cantidad: cantidad,
+      unidad: unidad,
+      nombre: nombre,
+      descripcion: descripcion
+    }
+    this.listaService.actualizarLista(lista)
+    .subscribe(res => {
+      if(res['status'] == 200) {
+        const alert = this.alertController.create({
+          message: `Lista ${nombre} actualizada`
+        });
+      }
+    })
+  }
+
+  async presentListConfirm(id: number, nombre: string) {
     const alert = await this.alertController.create({
       header: 'Borrar tarea',
-      message: `¿Estás seguro que quieres borrar la tarea <strong> ${titulo}</strong>?`,
+      message: `¿Estás seguro que quieres borrar la lista <strong> ${nombre}</strong>?`,
       buttons: [
         {
           text: 'Cancelar',

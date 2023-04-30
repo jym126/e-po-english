@@ -7,8 +7,10 @@
 
 <ion-content>
   <ion-label style="font-size: large">Tarea:</ion-label>
-  <ion-input type="text" placeholder="Título" [(ngModel)]="lista.nombre"></ion-input>
-  <ion-input type="text" placeholder="Nombre de la tarea" [(ngModel)]="lista.descripcion"></ion-input>
+  <ion-input type="text" placeholder="Cantidad" [(ngModel)]="lista.cantidad"></ion-input>
+  <ion-input type="text" placeholder="Unidad" [(ngModel)]="lista.unidad"></ion-input>
+  <ion-input type="text" placeholder="Artículo" [(ngModel)]="lista.nombre"></ion-input>
+  <ion-input type="text" placeholder="Descripción" [(ngModel)]="lista.descripcion"></ion-input>
   <ion-row>
     <ion-col size="12" class="ion-text-center">
       <ion-button (click)="crearLista()" size="small" shape="round">
