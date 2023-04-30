@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   url: '../assets/contactos/contactos.json',
-  uriList: 'localhost:4200'
+  uriList: 'https://epa.onrender.com'
 };
 
 /*

@@ -1,5 +1,5 @@
 export class Lista {
-  id?: number;
+  id?: string;
   nombre: string;
   descripcion?: string;
   cantidad: number;

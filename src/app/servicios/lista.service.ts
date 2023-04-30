@@ -20,11 +20,11 @@ export class ListaService {
     return this.http.post(`${this.uri}/addList`, lista);
   }
 
-  actualizarLista(lista: Lista, id: Number) {
+  actualizarLista(lista: Lista, id: String) {
     return this.http.put(`${this.uri}/updateList/${id}`, lista);
   }
 
-  borrarLista(id: Number) {
+  borrarLista(id: String) {
       return this.http.delete(`${this.uri}/deleteList/${id}`);
     }
 

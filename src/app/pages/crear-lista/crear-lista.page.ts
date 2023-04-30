@@ -11,7 +11,7 @@ import { AlertController } from '@ionic/angular';
 })
 export class CrearListaPage implements OnInit {
 
-  lista: Lista = {id: 0, nombre: '', descripcion: '', cantidad: 1, unidad: 'Ud'};
+  lista: Lista = {id: "", nombre: '', descripcion: '', cantidad: 1, unidad: 'Ud'};
 
   constructor(private listaService: ListaService,
               private router: Router,

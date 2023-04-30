@@ -33,7 +33,7 @@ export class Tab5Page implements OnInit {
     this.router.navigate(['../pages/crear-lista', {data: JSON.stringify(lista)}] );
   }
 
-  async presentListConfirm(id: number, nombre: string) {
+  async presentListConfirm(id: string, nombre: string) {
     const alert = await this.alertController.create({
       header: 'Borrar tarea',
       message: `¿Estás seguro que quieres borrar la lista <strong> ${nombre}</strong>?`,
