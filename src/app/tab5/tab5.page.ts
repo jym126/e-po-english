@@ -28,7 +28,6 @@ export class Tab5Page implements OnInit {
     .subscribe(res => {
       this.listaAlmacenada.push(res);
     });
-    console.log(this.listaAlmacenada);
   }
 
   async actualizarLista(lista) {

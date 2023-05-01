@@ -4,6 +4,7 @@ import { Lista } from 'src/app/modelos/lista';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-crear-lista',
@@ -15,7 +16,6 @@ export class CrearListaPage implements OnInit {
   data: any;
 
   lista: Lista = {
-    id: "", 
     nombre: '', 
     descripcion: '', 
     cantidad: 1, 
@@ -24,7 +24,8 @@ export class CrearListaPage implements OnInit {
   constructor(private listaService: ListaService,
               private router: Router,
               private alertController: AlertController,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private toast: ToastController) { }
 
   ngOnInit() {
     this.data = JSON.parse(this.route.snapshot.paramMap.get("data"));
@@ -35,24 +36,29 @@ export class CrearListaPage implements OnInit {
 
   crearLista() {
     this.listaService.crearLista(this.lista)
-    .subscribe(res => {
+    .subscribe(async(res) => {
       if(res['message'] == 'creada') {
-        const alert = this.alertController.create({
-          message: `Lista ${this.lista.nombre} actualizada`
+        const toast = await this.toast.create({
+          message: 'Artículo creado con éxito',
+          duration: 2000,
         });
+        toast.present();
       }
     })
     this.router.navigate(['tabs/tab5']);
   }
 
   actualizarLista() {
-    this.listaService.actualizarLista(this.lista, this.lista.id)
-    .subscribe(res => {
+    this.listaService.actualizarLista(this.lista, this.data._id)
+    .subscribe(async(res) => {
       if(res['message'] == 'actualizada') {
-        const alert = this.alertController.create({
-          message: `Lista ${this.lista.nombre} actualizada`
+        const toast = await this.toast.create({
+          message: 'Artículo borrado con éxito',
+          duration: 2000,
         });
+        toast.present();
       }
     })
+    this.router.navigate(['tabs/tab5']);
   }
 }

@@ -26,7 +26,6 @@ export class ListaService {
   }
 
   borrarLista(id: string): Observable<any> {
-    console.log(`${this.uri}/deleteList/${id}`);
       return this.http.delete(`${this.uri}/deleteList/${id}`);
     }
 
