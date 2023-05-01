@@ -36,7 +36,7 @@ export class CrearListaPage implements OnInit {
   crearLista() {
     this.listaService.crearLista(this.lista)
     .subscribe(res => {
-      if(res['status'] == 201) {
+      if(res['message'] == 'creada') {
         const alert = this.alertController.create({
           message: `Lista ${this.lista.nombre} actualizada`
         });
@@ -48,7 +48,7 @@ export class CrearListaPage implements OnInit {
   actualizarLista() {
     this.listaService.actualizarLista(this.lista, this.lista.id)
     .subscribe(res => {
-      if(res['status'] == 200) {
+      if(res['message'] == 'actualizada') {
         const alert = this.alertController.create({
           message: `Lista ${this.lista.nombre} actualizada`
         });
