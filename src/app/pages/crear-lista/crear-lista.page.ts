@@ -37,7 +37,6 @@ export class CrearListaPage implements OnInit {
   crearLista() {
     this.listaService.crearLista(this.lista)
     .subscribe(async(res) => {
-      console.log(res);
       if(res['message'] == 'creada') {
         const toast = await this.toast.create({
           message: 'Artículo creado con éxito',
@@ -52,7 +51,6 @@ export class CrearListaPage implements OnInit {
   actualizarLista() {
     this.listaService.actualizarLista(this.lista, this.data._id)
     .subscribe(async(res) => {
-      console.log(res);
       if(res['message'] == 'actualizada') {
         const toast = await this.toast.create({
           message: 'Artículo actualizado con éxito',
