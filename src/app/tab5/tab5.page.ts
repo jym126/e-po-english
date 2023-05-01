@@ -60,7 +60,7 @@ export class Tab5Page implements OnInit {
         }
       ]
     });
-
+    window.location.reload();
     await alert.present();
   }
 

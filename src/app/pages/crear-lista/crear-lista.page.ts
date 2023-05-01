@@ -46,6 +46,7 @@ export class CrearListaPage implements OnInit {
       }
     })
     this.router.navigate(['tabs/tab5']);
+    window.location.reload();
   }
 
   actualizarLista() {
@@ -60,5 +61,6 @@ export class CrearListaPage implements OnInit {
       }
     })
     this.router.navigate(['tabs/tab5']);
+    window.location.reload();
   }
 }
