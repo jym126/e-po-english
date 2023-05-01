@@ -54,13 +54,15 @@ export class Tab5Page implements OnInit {
                   duration: 2000,
                 });
                 toast.present();
+                setTimeout(() => {
+                  window.location.reload();
+                }, 1000);
               }
             });
           }
         }
       ]
     });
-    window.location.reload();
     await alert.present();
   }
 

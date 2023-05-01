@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 import { ToastController } from '@ionic/angular';
-import { setTimeout } from 'timers';
+
 
 @Component({
   selector: 'app-crear-lista',
@@ -47,7 +47,9 @@ export class CrearListaPage implements OnInit {
       }
     })
     this.router.navigate(['tabs/tab5']);
-    window.location.reload();
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
   }
 
   actualizarLista() {
