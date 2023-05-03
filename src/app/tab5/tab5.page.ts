@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, IonRefresher } from '@ionic/angular';
 import { ListaService } from '../servicios/lista.service';
 import { element } from 'protractor';
 import { Router } from '@angular/router';
@@ -67,6 +67,7 @@ export class Tab5Page implements OnInit {
   }
 
   doRefresh(event) {
+    console.log(event);
     window.location.reload();
     setTimeout(() => {
       event.target.complete();

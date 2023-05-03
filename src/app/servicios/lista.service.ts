@@ -13,15 +13,16 @@ export class ListaService {
 
   uri = environment.uriList;
 
-  listas(){
+  //Endpoints list
+  listas(): Observable<any>{
     return this.http.get(`${this.uri}/all`);
   }
 
-  crearLista(lista: Lista) {
+  crearLista(lista: Lista): Observable<any> {
     return this.http.post(`${this.uri}/addList`, lista);
   }
 
-  actualizarLista(lista: Lista, id: string) {
+  actualizarLista(lista: Lista, id: string): Observable<any> {
     return this.http.put(`${this.uri}/updateList/${id}`, lista);
   }
 
