@@ -17,9 +17,9 @@
     <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
-  <ion-list *ngFor="let item of listaAlmacenada[0]; let i = index">
+  <ion-list *ngFor="let item of listaAlmacenada; let i = index">
     <ion-item class="task" id="{{item._id}}">
-      {{item.cantidad}}{{item.unidad}} - {{item.nombre | titlecase}}: {{item.descripcion}}
+      {{item.cantidad}} {{item.unidad}} - {{item.nombre | titlecase}}: {{item.descripcion | titlecase}}
       <ion-icon id="{{item._id}}" slot="end" name="create-outline" (click)="actualizarLista(item)">
       </ion-icon>
       <ion-icon color="danger" slot="end" name="trash" (click)="presentListConfirm(item._id, item.nombre)"></ion-icon>

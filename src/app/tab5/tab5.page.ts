@@ -26,8 +26,12 @@ export class Tab5Page implements OnInit {
   async listas() {
     this.listaService.listas()
     .subscribe(res => {
-      this.listaAlmacenada.push(res);
+      // this.listaAlmacenada.push(res);
+      localStorage.setItem('lista', JSON.stringify(res[0]));
     });
+    let data = localStorage.getItem('lista');
+    this.listaAlmacenada.push(JSON.parse(data));
+    console.log(this.listaAlmacenada);
   }
 
   async actualizarLista(lista) {
@@ -67,7 +71,6 @@ export class Tab5Page implements OnInit {
   }
 
   doRefresh(event) {
-    console.log(event);
     window.location.reload();
     setTimeout(() => {
       event.target.complete();
