@@ -27,7 +27,7 @@ export class Tab5Page implements OnInit {
     this.listaService.listas()
     .subscribe(res => {
       // this.listaAlmacenada.push(res);
-      localStorage.setItem('lista', JSON.stringify(res[0]));
+      localStorage.setItem('lista', JSON.stringify(res));
     });
     let data = localStorage.getItem('lista');
     this.listaAlmacenada.push(JSON.parse(data));
