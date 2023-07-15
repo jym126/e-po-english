@@ -19,12 +19,12 @@ export class Tab5Page implements OnInit {
               private router: Router,
               private toast: ToastController) { }
 
-  ngOnInit() {
-    this.listas();
+  async ngOnInit() {
+    await this.listas();
   }
 
   async listas() {
-    this.listaService.listas()
+    await this.listaService.listas()
     .subscribe(res => {
       // this.listaAlmacenada.push(res);
       localStorage.setItem('lista', JSON.stringify(res));
