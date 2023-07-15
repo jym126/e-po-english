@@ -17,9 +17,9 @@ export class CrearListaPage implements OnInit {
   data: any;
 
   lista: Lista = {
-    nombre: '', 
-    descripcion: '', 
-    cantidad: 1, 
+    nombre: '',
+    descripcion: '',
+    cantidad: 1,
     unidad: 'Ud'};
 
   constructor(private listaService: ListaService,
@@ -41,7 +41,7 @@ export class CrearListaPage implements OnInit {
       if(res['message'] == 'creada') {
         const toast = await this.toast.create({
           message: 'Artículo creado con éxito',
-          duration: 2000,
+          duration: 2500,
         });
         toast.present();
       }
