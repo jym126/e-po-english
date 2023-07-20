@@ -45,12 +45,11 @@ export class CrearListaPage implements OnInit {
         });
         toast.present();
       }
-      this.ngOnInit();
     })
     this.router.navigate(['tabs/tab5']);
     setTimeout(() => {
       window.location.reload();
-    }, 4000);
+    }, 1500);
   }
 
   actualizarLista() {
