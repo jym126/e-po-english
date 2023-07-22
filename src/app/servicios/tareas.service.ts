@@ -5,6 +5,7 @@
 import { Injectable } from '@angular/core';
 import { Tareas } from '../modelos/tareas';
 import { Storage } from '@ionic/storage-angular';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -67,7 +68,6 @@ export class TareasService {
     this.checked = check || [];
     return this.checked;
   }
-
 
   public borrarTarea(id: number) {
     this.tarea = this.tarea.filter(t => t.id !== id);

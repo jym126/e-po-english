@@ -6,6 +6,7 @@ import { Tareas } from '../modelos/tareas';
 import { TareasService } from '../servicios/tareas.service';
 import { AlertController } from '@ionic/angular';
 import { ReminderService } from '../servicios/reminder.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab1',
@@ -29,12 +30,17 @@ export class Tab1Page implements OnInit {
 
   constructor(private sTareas: TareasService,
               private alertController: AlertController,
-              private reminder: ReminderService
+              private reminder: ReminderService,
+              private router: Router
               ) {
                 this.init();
               }
 
   ngOnInit() {
+  }
+
+  async actualizarTarea(tarea) {
+    this.router.navigate(['/crear-tarea', {data: JSON.stringify(tarea)}] );
   }
 
   //Function para restablecer el estado de los elementos checkbox al reiniciar la app

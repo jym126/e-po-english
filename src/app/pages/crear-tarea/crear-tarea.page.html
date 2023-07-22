@@ -11,9 +11,16 @@
   <ion-input type="text" placeholder="Nombre de la tarea" [(ngModel)]="tarea.descripcion"></ion-input>
   <ion-row>
     <ion-col size="12" class="ion-text-center">
-      <ion-button (click)="guardarTarea()" size="small" shape="round">
+      <ng-template [ngIf]= "data" [ngIfElse]="elseBlock">
+      <ion-button (click)="actualizarTarea()" size="small" shape="round">
+        Actualizar
+      </ion-button>
+      </ng-template>
+      <ng-template #elseBlock>
+            <ion-button (click)="guardarTarea()" size="small" shape="round">
         Guardar
       </ion-button>
+    </ng-template>
     </ion-col>
   </ion-row>
 </ion-content>

@@ -1,18 +1,32 @@
 ion-popover.popTime {
-    --offset-y: -240px !important;
+    --offset-y: -335px !important;
   }
 
-  ion-datetime {
+ion-datetime {
     color: rgb(160, 98, 6);
     background-color: rgb(234, 243, 250);
 }
 
 .task {
-  --background: rgb(140, 250, 176);
+  --background: rgb(82, 207, 155);
   color: blue;
   box-shadow: 5px 5px rgb(167, 166, 166);
 }
 
 ion-checkbox{
   color: red;
+  margin-right: 10px;
 }
+
+ion-item {
+  font-size: 16px;
+}
+
+ion-icon {
+  margin-inline-end: 5px;
+}
+
+div.input-wrapper {
+  padding-right: 0%;
+  margin-right: 0%;
+ }
