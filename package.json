@@ -1,8 +1,8 @@
 {
-  "name": "e-pa",
+  "name": "e-po",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "author": "Jose L. Martinez",
+  "homepage": "https://development-martinez.webnode.es/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -74,5 +74,5 @@
     "ts-node": "~8.3.0",
     "typescript": "~4.7.3"
   },
-  "description": "An Ionic project"
+  "description": "Electronic Personal Organizer"
 }
