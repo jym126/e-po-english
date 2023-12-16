@@ -49,7 +49,7 @@ export class Tab1Page implements OnInit {
       if(this.checked.length > 0){
       for(let i = 0; i<=this.checked.length; i++){
         const a: string = i.toString();
-        document.getElementById(a).setAttribute('style',this.checked[i]);
+        document.getElementById(a).setAttribute('style',this.checked[i] || null);
         if(this.checked[i] !== ''){
           const checkbox = document.getElementById('c'+a,) as HTMLInputElement | null;
           checkbox.checked = true;

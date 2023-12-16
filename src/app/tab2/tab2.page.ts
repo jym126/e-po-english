@@ -13,6 +13,7 @@ import { ModalController } from '@ionic/angular';
 })
 export class Tab2Page {
 
+  // nota: Notas;
   nota = {titulo: '', descripcion: '', imagen: ''};
   imagen = 'assets/note1.png';
   foto = false;
