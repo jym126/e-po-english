@@ -39,7 +39,9 @@
     "ionic2-calendar": "^0.6.9",
     "ngx-ionic-image-viewer": "^0.7.5",
     "rxjs": "~6.6.0",
+    "ts-evaluator": "^1.2.0",
     "tslib": "^2.2.0",
+    "uuid": "^9.0.1",
     "zone.js": "~0.13.3"
   },
   "devDependencies": {
