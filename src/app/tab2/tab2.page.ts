@@ -5,6 +5,7 @@ import { AlertController } from '@ionic/angular';
 import { ImageService } from 'src/app/servicios/image.service';
 import { ViewerModalComponent } from 'ngx-ionic-image-viewer';
 import { ModalController } from '@ionic/angular';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-tab2',
@@ -13,7 +14,6 @@ import { ModalController } from '@ionic/angular';
 })
 export class Tab2Page {
 
-  
   // nota: Notas;
   nota = {titulo: '', descripcion: '', imagen: ''};
   imagen = 'assets/note1.png';
@@ -23,7 +23,8 @@ export class Tab2Page {
               private alertController: AlertController,
               private sNota: NotasService,
               private sImagen: ImageService,
-              public modalController: ModalController) {}
+              public modalController: ModalController,
+              public http: HttpClient) {}
 
   get notasAlmacenadas() {
     return this.sNotas.getLocalNotas;
@@ -45,19 +46,25 @@ export class Tab2Page {
       this.nota.imagen = imagen;});
   }
 
-  async viewPhoto(ruta) {
-    const modal = await this.modalController.create({
-      component: ViewerModalComponent,
-      componentProps: {
-        src: ruta
-      },
-      cssClass: 'ion-img-viewer',
-      keyboardClose: true,
-      showBackdrop: true
-    });
+  // async viewPhoto(ruta) {
+  //   const modal = await this.modalController.create({
+  //     component: ViewerModalComponent,
+  //     componentProps: {
+  //       src: ruta
+  //     },
+  //     cssClass: 'ion-img-viewer',
+  //     keyboardClose: true,
+  //     showBackdrop: true
+  //   });
 
-    return await modal.present();
-  }
+  //   return await modal.present();
+  // }
+
+  viewPhoto(img:any) {
+    // Open the image in new tab.
+    window.open(img, "_self");
+    return this.http.get(img);
+}
 
   async presentAlertConfirm(id: number, titulo: string) {
     const alert = await this.alertController.create({
