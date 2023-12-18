@@ -21,7 +21,7 @@
       <ion-label color="primary">ID: {{item.id}}</ion-label>
         <ion-row class="ion-no-border">
           <ion-col size="4">
-            <ion-avatar size="large" (click)="viewPhoto(item.imagen)">
+            <ion-avatar id="myImage" size="large">
               <img  src="{{item.imagen}}">
             </ion-avatar><br><br>
           </ion-col>
@@ -36,6 +36,13 @@
             <ion-icon name="trash" size="large" color="danger" style="float: right" (click)="presentAlertConfirm(item.id, item.nombre)"></ion-icon>
           </ion-col>
         </ion-row>
+
+        <ion-popover trigger="myImage" triggerAction="click">
+          <ng-template>
+            <ion-content class="ion-padding"><img src="{{item.imagen}}" alt=""></ion-content>
+          </ng-template>
+        </ion-popover>
+
       </ion-card-content>
     </ion-card>
   </ion-list>

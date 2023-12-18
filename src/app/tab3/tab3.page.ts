@@ -6,7 +6,6 @@ import { ActionSheetController, AlertController } from '@ionic/angular';
 import { ContactosService } from '../servicios/contactos.service';
 import { ImageService } from '../servicios/image.service';
 import { CallNumber } from '@awesome-cordova-plugins/call-number/ngx';
-import { ViewerModalComponent } from 'ngx-ionic-image-viewer';
 import { ModalController } from '@ionic/angular';
 
 
@@ -66,20 +65,6 @@ export class Tab3Page implements OnInit {
 
   borrarImagen(id) {
     this.sImagenes.borrarImagen(id);
-  }
-
-  async viewPhoto(ruta) {
-    const modal = await this.modalController.create({
-      component: ViewerModalComponent,
-      componentProps: {
-        src: ruta
-      },
-      cssClass: 'ion-img-viewer',
-      keyboardClose: true,
-      showBackdrop: true
-    });
-
-    return await modal.present();
   }
 
   editarContacto(datos) {
