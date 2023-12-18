@@ -77,7 +77,7 @@
             <ion-avatar
               class="imagen"
               size="large"
-              (click)="viewPhoto(item.imagen)"
+              id="myImage"
               *ngIf="item.imagen != ''; else noImage">
 
               <img class="imagen"  src="{{item.imagen}}">
@@ -90,6 +90,11 @@
 
           <ion-col size="9"> {{item.descripcion}}<br /> </ion-col>
         </ion-row>
+<ion-popover trigger="myImage" triggerAction="click">
+  <ng-template>
+    <ion-content class="ion-padding"><img src="{{item.imagen}}" alt=""></ion-content>
+  </ng-template>
+</ion-popover>
       </ion-card-content>
       <span class="delete">
         <ion-icon
@@ -102,5 +107,5 @@
       </span>
     </ion-card>
   </ion-list>
-  
+
 </ion-content>

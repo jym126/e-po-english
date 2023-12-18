@@ -3,9 +3,7 @@ import { Notas } from '../modelos/notas';
 import { NotasService } from '../servicios/notas.service';
 import { AlertController } from '@ionic/angular';
 import { ImageService } from 'src/app/servicios/image.service';
-import { ViewerModalComponent } from 'ngx-ionic-image-viewer';
 import { ModalController } from '@ionic/angular';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-tab2',
@@ -23,8 +21,7 @@ export class Tab2Page {
               private alertController: AlertController,
               private sNota: NotasService,
               private sImagen: ImageService,
-              public modalController: ModalController,
-              public http: HttpClient) {}
+              public modalController: ModalController) {}
 
   get notasAlmacenadas() {
     return this.sNotas.getLocalNotas;
@@ -45,26 +42,6 @@ export class Tab2Page {
       //guardar imagen en nota.imagen
       this.nota.imagen = imagen;});
   }
-
-  // async viewPhoto(ruta) {
-  //   const modal = await this.modalController.create({
-  //     component: ViewerModalComponent,
-  //     componentProps: {
-  //       src: ruta
-  //     },
-  //     cssClass: 'ion-img-viewer',
-  //     keyboardClose: true,
-  //     showBackdrop: true
-  //   });
-
-  //   return await modal.present();
-  // }
-
-  viewPhoto(img:any) {
-    // Open the image in new tab.
-    window.open(img, "_blank");
-    return this.http.get(img);
-}
 
   async presentAlertConfirm(id: number, titulo: string) {
     const alert = await this.alertController.create({

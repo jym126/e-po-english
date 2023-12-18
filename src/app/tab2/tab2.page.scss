@@ -49,3 +49,8 @@ ion-img {
 .cardContent{
     width: 100%;
 }
+
+ion-popover {
+  --width: auto;
+  --height: auto
+}
