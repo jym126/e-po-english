@@ -62,7 +62,7 @@ export class Tab2Page {
 
   viewPhoto(img:any) {
     // Open the image in new tab.
-    window.open(img, "_self");
+    window.open(img, "_blank");
     return this.http.get(img);
 }
 
