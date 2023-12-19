@@ -20,6 +20,7 @@ export class Tab1Page implements OnInit {
   estilo =  '';
   @ViewChild('dateTime') dateTime;
 
+  id = "";
   date = new Date();
   day = String(this.date.getDate()).padStart(2, '0');
   month = String(this.date.getMonth()+1).padStart(2, '0');
@@ -88,7 +89,7 @@ export class Tab1Page implements OnInit {
     await alert.present();
   }
 
-  notifications(date, titulo, descript){
+  notifications(id, date, titulo, descript){
     this.reminder.notifications(date, titulo, descript);
   }
 
