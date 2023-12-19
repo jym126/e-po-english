@@ -10,7 +10,10 @@ ion-datetime {
 .task {
   --background: rgb(12, 48, 82);
   color: white;
-  box-shadow: 5px 5px rgb(167, 166, 166);
+  box-shadow: 5px 5px rgb(65, 65, 175);
+  border-radius: 10px;
+  width: 97%;
+  margin-left: 5px;
 }
 
 ion-checkbox{
