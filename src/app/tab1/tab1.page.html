@@ -18,27 +18,32 @@
     <ion-item class="task" id="{{item.id}}">
       <!-- <ion-icon slot="start" name="document-outline" color="black"></ion-icon> -->
       {{item.titulo | titlecase}}: {{item.descripcion | titlecase}}
-      <ion-icon id="date{{item.id}}" slot="end" name="time-outline" value="date" color="black">
+      <ion-icon id="date{{item.id}}" slot="end" name="time-outline" value="date" color="black" (click)="presentPopover($event)">
       </ion-icon>
       <ion-checkbox class="check" id="c{{item.id}}" slot="start" [(ngModel)]="item.isChecked" style="position: relative"></ion-checkbox>
       <ion-icon id="{{item.id}}" slot="end" name="create-outline" (click)="actualizarTarea(item)" color="black"></ion-icon>
       <ion-icon color="danger" slot="end" name="trash" (click)="presentAlertConfirm(item.id, item.titulo)"></ion-icon>
     </ion-item>
 
-    <ion-popover class="popTime" trigger="date{{item.id}}" side="top" alignment="start" show-backdrop="false" [dismissOnSelect]="false">
+    <ion-popover id="pop{{item.id}}" class="popTime"  #popover [isOpen]="isOpen" (didDismiss)="isOpen = false" side="top" alignment="start" show-backdrop="false" [dismissOnSelect]="false" title="timePicker">
       <ng-template>
-      <ion-datetime
-                #datetime
-                [(ngModel)]="fullDate"
-                [showDefaultButtons]="true"
-                doneText="Ok"
-                cancelText="Cancelar"
-                clearText="Clear"
-                (ionChange)="notifications(item.id, fullDate, item.titulo, item.descripcion)"
-                > <span slot="time-label">Hora</span>
-      </ion-datetime>
+
+        <ion-content>
+          <ion-datetime
+          #datetime
+          [(ngModel)]="fullDate"
+          [showDefaultButtons]="true"
+          id="date{{item}}"
+          doneText="Ok"
+          cancelText="Cancelar"
+          clearText="Clear"
+          (ionChange)="notifications(item.id, fullDate, item.titulo, item.descripcion)"
+          > <span slot="time-label">Hora</span>
+</ion-datetime>
+        </ion-content>
   </ng-template>
   </ion-popover>
+
 
   </ion-list>
 
