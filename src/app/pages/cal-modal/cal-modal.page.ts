@@ -18,6 +18,7 @@ export class CalModalPage implements AfterViewInit {
   viewTitle: string;
 
   event = {
+    id: '',
     title: '',
     desc: '',
     startTime: null,
@@ -52,7 +53,7 @@ export class CalModalPage implements AfterViewInit {
     const endTime = (ev.detail.value.slice(11,16));
     this.event.startTime = new Date(ev.detail.value);
     this.event.endHour = endTime;
-    this.reminder.notifications(this.event.startTime, this.event.title, this.event.desc);
+    this.reminder.notifications(this.event.id, this.event.startTime, this.event.title, this.event.desc);
 
     this.save();
   }

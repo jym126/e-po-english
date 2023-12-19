@@ -90,7 +90,7 @@ export class Tab1Page implements OnInit {
   }
 
   notifications(id, date, titulo, descript){
-    this.reminder.notifications(date, titulo, descript);
+    this.reminder.notifications(id, date, titulo, descript);
   }
 
 

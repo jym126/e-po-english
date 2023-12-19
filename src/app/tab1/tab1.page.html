@@ -31,11 +31,10 @@
                 #datetime
                 [(ngModel)]="fullDate"
                 [showDefaultButtons]="true"
-                id="date{{item.id}}"
                 doneText="Ok"
                 cancelText="Cancelar"
                 clearText="Clear"
-                (ionChange)="notifications(id, fullDate, item.titulo, item.descripcion)"
+                (ionChange)="notifications(item.id, fullDate, item.titulo, item.descripcion)"
                 > <span slot="time-label">Hora</span>
       </ion-datetime>
   </ng-template>
