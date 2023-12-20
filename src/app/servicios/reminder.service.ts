@@ -31,9 +31,11 @@ export class ReminderService {
       //Toast de confirmación
       const toast = await this.toastController.create({
       message: 'Añadido evento '+titulo+' para el '+date,
-      duration: 3000
+      duration: 2500
       });
       toast.present();
-
+      setTimeout(() => {
+        window.location.reload();
+      }, 3000);
       }
 }
