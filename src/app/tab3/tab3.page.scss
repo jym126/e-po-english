@@ -1,9 +1,9 @@
-ion-avatar { 
+ion-avatar {
     width: fit-content;
     margin: 0%;
     padding: 0%;
     img {
-    width:110px !important;  
+    width:110px !important;
     height : 110px !important;
     }
 }
@@ -20,5 +20,6 @@ ion-card.ion-color .ion-inherit-color, ion-card-header.ion-color .ion-inherit-co
 }
 
 .card{
-    box-shadow: 5px 5px gray;
+  box-shadow: 5px 5px rgb(65, 65, 175);
+  background-color: rgb(12, 48, 82);
 }
