@@ -11,13 +11,14 @@ export class ReminderService {
     public toastController: ToastController) { }
 
     // Schedule delayed notification
-    async notifications(date, titulo, descript) {
+    async notifications(id, date, titulo, descript) {
       let time = date.toString();
+      let myId = parseInt(id)
       time = time.slice(11,16);
       if(time !== '00:00'){
       await LocalNotifications.schedule({
       notifications: [{
-      id: 1,
+      id: id+1,
       title: titulo,
       body: descript,
       schedule: {at: new Date(date)}

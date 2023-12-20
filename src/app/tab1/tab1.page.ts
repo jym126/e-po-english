@@ -15,6 +15,10 @@ import { Router } from '@angular/router';
 })
 export class Tab1Page implements OnInit {
 
+  @ViewChild('popover') popover;
+
+  isOpen = false;
+
   tareas: Tareas[] = [];
 
   estilo =  '';
@@ -89,8 +93,13 @@ export class Tab1Page implements OnInit {
     await alert.present();
   }
 
+  presentPopover(e: Event) {
+    this.popover.event = e;
+    this.isOpen = true;
+  }
+
   notifications(id, date, titulo, descript){
-    this.reminder.notifications(date, titulo, descript);
+    this.reminder.notifications(id, date, titulo, descript);
   }
 
 
