@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">e-pa</string>
-    <string name="title_activity_main">e-pa</string>
-    <string name="package_name">com.developmentmartinez.e_pa</string>
-    <string name="custom_url_scheme">com.developmentmartinez.e_pa</string>
+    <string name="app_name">e-po</string>
+    <string name="title_activity_main">e-po</string>
+    <string name="package_name">com.developmentmartinez.e_po</string>
+    <string name="custom_url_scheme">com.developmentmartinez.e_po</string>
 </resources>
