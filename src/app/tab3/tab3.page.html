@@ -21,7 +21,7 @@
       <ion-label color="primary">ID: {{item.id}}</ion-label>
         <ion-row class="ion-no-border">
           <ion-col size="4">
-            <ion-avatar id="myImage" size="large">
+            <ion-avatar id="myImage{{item.id}}" size="large">
               <img  src="{{item.imagen}}">
             </ion-avatar><br><br>
           </ion-col>
@@ -37,7 +37,7 @@
           </ion-col>
         </ion-row>
 
-        <ion-popover trigger="myImage" triggerAction="click">
+        <ion-popover trigger="myImage{{item.id}}" triggerAction="click">
           <ng-template>
             <ion-content class="ion-padding"><img src="{{item.imagen}}" alt=""></ion-content>
           </ng-template>
