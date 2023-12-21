@@ -1,3 +1,8 @@
+.toolbar-container {
+    display: flex;
+    text-align: left;
+}
+
 .card {
     text-align: left;
     background-color: rgb(252, 252, 72);
@@ -53,4 +58,7 @@ ion-img {
 ion-popover {
   --width: auto;
   --height: auto
+}
+.hydrated {
+    text-align: center;
 }
