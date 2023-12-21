@@ -74,13 +74,6 @@ captura() {
 
 volver() {
   this.router.navigate(['tabs/tab3']);
-  this.datos = {
-    nombre: '',
-    apellidos: '',
-    direccion: '',
-    email: '',
-    telefono: ''
-  };
 }
 
 }
