@@ -37,7 +37,7 @@
           </ion-col>
         </ion-row>
 
-        <ion-popover trigger="myImage{{item.id}}" triggerAction="click">
+        <ion-popover id="popover{{item.id}}" trigger="myImage{{item.id}}" triggerAction="click">
           <ng-template>
             <ion-content class="ion-padding"><img src="{{item.imagen}}" alt=""></ion-content>
           </ng-template>

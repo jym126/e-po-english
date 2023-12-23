@@ -80,7 +80,7 @@
             <ion-avatar
               class="imagen"
               size="large"
-              id="myImage{{i}}"
+              id="myNoteImage{{i}}"
               *ngIf="item.imagen != ''; else noImage">
 
               <img class="imagen"  src="{{item.imagen}}">
@@ -93,7 +93,7 @@
 
           <ion-col size="9"> {{item.descripcion}}<br /> </ion-col>
         </ion-row>
-<ion-popover id="pop{{i}}" trigger="myImage{{i}}" triggerAction="click">
+<ion-popover id="pop{{i}}" trigger="myNoteImage{{i}}" triggerAction="click">
   <ng-template>
     <ion-content class="ion-padding"><img src="{{item.imagen}}" alt=""></ion-content>
   </ng-template>
