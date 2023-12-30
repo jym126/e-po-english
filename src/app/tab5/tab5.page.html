@@ -17,6 +17,15 @@
     <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
+
+  <ion-row>
+  <ion-col size="12" style="text-align:center">
+  <ion-item *ngIf= "!load" >
+    <ion-spinner name="circular"></ion-spinner>
+  </ion-item>
+  </ion-col>
+  </ion-row>
+
   <ion-list *ngFor="let item of listaAlmacenada[0]; let i = index">
     <ion-item class="task" id="{{item._id}}">
       {{item.cantidad}} {{item.unidad}} - {{item.nombre | titlecase}}: {{item.descripcion | titlecase}}

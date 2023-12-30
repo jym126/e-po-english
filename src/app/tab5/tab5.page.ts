@@ -12,6 +12,7 @@ import { ToastController } from '@ionic/angular';
 })
 export class Tab5Page implements OnInit {
 
+  load = false;
   listaAlmacenada: any = [];
 
   constructor(private alertController: AlertController,
@@ -30,6 +31,7 @@ export class Tab5Page implements OnInit {
       localStorage.setItem('lista', JSON.stringify(res));
       let data = localStorage.getItem('lista');
       await this.listaAlmacenada.push(JSON.parse(data));
+      this.load = true;
     });
   }
 
