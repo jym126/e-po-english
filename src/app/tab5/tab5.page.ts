@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController, IonRefresher } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 import { ListaService } from '../servicios/lista.service';
-import { element } from 'protractor';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 
@@ -25,12 +24,11 @@ export class Tab5Page implements OnInit {
   }
 
   async listas() {
+    let data = localStorage.getItem('lista');
+    await this.listaAlmacenada.push(JSON.parse(data));
     await this.listaService.listas()
     .subscribe(async res => {
-      // this.listaAlmacenada.push(res);
       localStorage.setItem('lista', JSON.stringify(res));
-      let data = localStorage.getItem('lista');
-      await this.listaAlmacenada.push(JSON.parse(data));
       this.load = true;
     });
   }
