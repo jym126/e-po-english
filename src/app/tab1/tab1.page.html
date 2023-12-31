@@ -17,7 +17,7 @@
     <ion-item class="task" id="{{item.id}}">
       <!-- <ion-icon slot="start" name="document-outline" color="black"></ion-icon> -->
       {{item.titulo | titlecase}}: {{item.descripcion | titlecase}}
-      <ion-icon id="date{{item.id}}" slot="end" name="time-outline" value="date" color="black" (click)="presentPopover($event)">
+      <ion-icon class="date" id="date{{item.id}}" slot="end" name="time-outline" value="date" (click)="presentPopover($event)">
       </ion-icon>
       <ion-checkbox class="check" id="c{{item.id}}" slot="start" [(ngModel)]="item.isChecked" style="position: relative"></ion-checkbox>
       <ion-icon id="{{item.id}}" slot="end" name="create-outline" (click)="actualizarTarea(item)" color="black"></ion-icon>
