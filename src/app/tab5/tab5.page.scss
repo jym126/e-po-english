@@ -6,3 +6,11 @@ ion-spinner {
     display: block;
     margin: auto;
   }
+
+  /*alternate color of list lines*/
+  .odd{
+    --ion-item-background: #f8f7f7;
+  }
+  .even{
+    --ion-item-background: #ece9e9;
+  }
