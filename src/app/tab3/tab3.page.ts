@@ -116,5 +116,4 @@ export class Tab3Page implements OnInit {
         Email: ${email}`,
       });
     }
-
 }
