@@ -107,13 +107,13 @@ export class Tab3Page implements OnInit {
     //Método para compartir con otras aplicaciones
     async onShareContact(id) {
       this.contacto = await this.sContactos.getContactById(id)[0];
-      // const {nombre, telefono, email}: any = this.contacto;
+      const {nombre, telefono, email}: any = this.contacto;
 
       await Share.share({
-        title: 'See cool stuff',
-        text: 'Really awesome thing you need to see right meow',
-        url: 'http://ionicframework.com/',
-        dialogTitle: 'Share with buddies',
+        text: `Hola, comparto los datos de contacto de ${nombre}:\n
+        Teléfono: ${telefono}\n
+        Email: ${email}`,
+
       });
     }
 
