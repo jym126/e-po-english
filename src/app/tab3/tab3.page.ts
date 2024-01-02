@@ -107,10 +107,11 @@ export class Tab3Page implements OnInit {
     //Método para compartir con otras aplicaciones
     async onShareContact(id) {
       this.contacto = await this.sContactos.getContactById(id)[0];
-      const {nombre, telefono, email}: any = this.contacto;
+      const {nombre, telefono, email, imagen}: any = this.contacto;
 
       await Share.share({
         text: `Hola, comparto los datos de contacto de ${nombre}:\n
+        ${imagen}\n
         Teléfono: ${telefono}\n
         Email: ${email}`,
 
