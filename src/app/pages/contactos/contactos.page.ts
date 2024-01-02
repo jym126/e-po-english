@@ -68,7 +68,6 @@ onSubmit() {
 captura() {
   this.foto = true;
   this.sImagen.capturaImagen().then(imagen => {  this.imagen.unshift(imagen);
-    console.log(imagen);
     this.contactos.value.imagen = imagen;});
 }
 
