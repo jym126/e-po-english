@@ -1,3 +1,31 @@
+.menu {
+  height: 40px;
+  padding-top: 4px;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.button-menu {
+  color: rgb(241, 168, 85);
+}
+
+.header {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 35px;
+}
+
+.data {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.menuCol {
+  height: 35px;
+}
+
 ion-avatar {
     width: fit-content;
     margin: 0%;
@@ -14,6 +42,7 @@ ion-card.ion-color .ion-inherit-color, ion-card-header.ion-color .ion-inherit-co
     margin-right: 0%;
     padding-right: 0%;
 }
+
 
 .action {
     margin-left: 15px;

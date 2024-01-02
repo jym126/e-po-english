@@ -17,8 +17,17 @@
 
   <ion-list *ngFor="let item of contactosAlmacenados">
     <ion-card class="card" style="border-radius: 15px">
-      <ion-card-content>
-      <ion-label color="primary">ID: {{item.id}}</ion-label>
+      <ion-card-content class="menu">
+      <ion-row class="header">
+        <ion-col class="menuCol" size="11">
+          <ion-label color="primary">ID: {{item.id}}</ion-label>
+        </ion-col>
+        <ion-col class="menuCol" size="1">
+            <ion-icon class="button-menu" size="large" name="ellipsis-vertical-outline" (click)="onOpenMenu(item.id)"></ion-icon>
+        </ion-col>
+      </ion-row>
+      </ion-card-content>
+      <ion-card-content class="data">
         <ion-row class="ion-no-border">
           <ion-col size="4">
             <ion-avatar id="myImage{{item.id}}" size="large">

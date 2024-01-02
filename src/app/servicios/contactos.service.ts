@@ -14,11 +14,9 @@ import { Router } from '@angular/router';
 })
 export class ContactosService {
 
-  contacto: Contactos[] = [];
+  contacto: any
+  contactos: Contactos[] = [];
   private _storage: Storage | null = null;
-
-
-  private url: string = environment.url;
 
 
   constructor(private storage: Storage,
@@ -28,12 +26,13 @@ export class ContactosService {
   }
 
   get getLocalContactos() {
-    return [...this.contacto];
+    return [...this.contactos];
    }
 
-  getContactos(): Observable<Contactos[]> {
-    return this.http.get<Contactos[]>(`${this.url}`);
-  }
+   public getContactById(id: number) {
+    this.contacto = this.contactos.filter(c => c.id === id);
+    return this.contacto;
+}
 
   async init() {
     const storage = await this.storage.create();
@@ -43,28 +42,28 @@ export class ContactosService {
 
   guardarContacto(c: Contactos) {
     if(c.id === undefined) {
-      const maxId = this.contacto.reduce((max, c) => c.id > max? c.id : max, -1);
+      const maxId = this.contactos.reduce((max, c) => c.id > max? c.id : max, -1);
       const newContacto = {id: maxId + 1, nombre: c.nombre, apellidos: c.apellidos, telefono: c.telefono, direccion: c.direccion, email: c.email, imagen: c.imagen};
-      this.contacto.push(newContacto);
+      this.contactos.push(newContacto);
     }else{
       this.borrarContacto(c.id);
-      this.contacto.push(c);
-      this.contacto.sort((c1, c2) => c1.id < c2.id ? -1 : 1);
+      this.contactos.push(c);
+      this.contactos.sort((c1, c2) => c1.id < c2.id ? -1 : 1);
     }
-    this._storage.set('contactos', this.contacto);
+    this._storage.set('contactos', this.contactos);
     this.router.navigateByUrl('tabs/tab3');
-    return this.contacto;
+    return this.contactos;
   }
 
   async listaContactos() {
     const notas = await this._storage.get('contactos');
-    this.contacto = notas || [];
-    return this.contacto;
+    this.contactos = notas || [];
+    return this.contactos;
   }
 
 
   public borrarContacto(id: number) {
-    this.contacto = this.contacto.filter(c => c.id !== id);
-    return this._storage.set('contactos', this.contacto);
+    this.contactos = this.contactos.filter(c => c.id !== id);
+    return this._storage.set('contactos', this.contactos);
 }
 }

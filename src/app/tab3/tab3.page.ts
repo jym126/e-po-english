@@ -7,6 +7,8 @@ import { ContactosService } from '../servicios/contactos.service';
 import { ImageService } from '../servicios/image.service';
 import { CallNumber } from '@awesome-cordova-plugins/call-number/ngx';
 import { ModalController } from '@ionic/angular';
+import { Share } from '@capacitor/share';//para compartir en redes sociales
+import { Contactos } from '../modelos/contactos';
 
 
 @Component({
@@ -15,6 +17,8 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page implements OnInit {
+
+  contacto: Contactos;
 
   isLoading = false;
   mail: string;
@@ -37,10 +41,7 @@ export class Tab3Page implements OnInit {
     return this.sContactos.getLocalContactos;
   }
 
-  ngOnInit() {
-    // this.getContactos();
-  }
-
+  ngOnInit() {}
 
   async presentAlertConfirm(id: number, nombre: string) {
     const alert = await this.alertController.create({
@@ -81,5 +82,39 @@ export class Tab3Page implements OnInit {
   numberCaller(number: string) {
     this.caller.callNumber(number, true);
   }
+
+  async onOpenMenu(id) {
+    const actionSheet = await this.actionSheetController.create({
+      header: 'Opciones',
+      buttons: [
+        {
+        text: 'Compartir',
+        icon: 'Share-outline',
+        handler: ()=> this.onShareContact(id)
+        },
+
+        {
+          text: 'Cancelar',
+          icon: 'close-circle-outline',
+          role: 'cancel',
+          cssClass: 'cancel'
+        }
+      ]
+    });
+    await actionSheet.present();
+  }
+
+    //Método para compartir con otras aplicaciones
+    async onShareContact(id) {
+      this.contacto = await this.sContactos.getContactById(id)[0];
+      // const {nombre, telefono, email}: any = this.contacto;
+
+      await Share.share({
+        title: 'See cool stuff',
+        text: 'Really awesome thing you need to see right meow',
+        url: 'http://ionicframework.com/',
+        dialogTitle: 'Share with buddies',
+      });
+    }
 
 }
