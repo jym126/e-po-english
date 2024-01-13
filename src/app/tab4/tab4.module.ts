@@ -21,6 +21,6 @@ registerLocaleData(localeEs);
   ],
   declarations: [Tab4Page],
 
-  providers: [{ provide: LOCALE_ID, useValue: 'es-ES' }]
+  providers: [{ provide: LOCALE_ID, useValue: 'en-US' }]
 })
 export class Tab4PageModule {}

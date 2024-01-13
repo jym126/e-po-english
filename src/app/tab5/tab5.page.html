@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title color="tertiary">
-      Lista
+      To-Do-List
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,11 +9,11 @@
 <ion-content [fullscreen]="true">
   <ion-row>
     <ion-col size="12" style="text-align:center">
-        <ion-button size="medium" [routerLink]="['/crear-lista']">Añadir a la Lista</ion-button>
+        <ion-button size="medium" [routerLink]="['/crear-lista']">Add to List</ion-button>
     </ion-col>
 
   </ion-row>
-  <ion-label style="font-size: 20px" color="primary">Lista de la compra</ion-label>
+  <ion-label style="font-size: 20px" color="primary">List</ion-label>
     <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
@@ -37,7 +37,7 @@
 
   <ion-row class="message">
     <ion-col size="12">
-      <p>Arrastra hacia abajo para actualizar</p>
+      <p>Drag down to refresh</p>
     </ion-col>
   </ion-row>
 

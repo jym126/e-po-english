@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title color="tertiary">
-      Contactos
+      Contacts
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -10,7 +10,7 @@
   <ion-row>
     <ion-col size="12" style="text-align: center">
         <ion-button [routerLink]="['/contactos']" size="nedium">
-        Añadir Usuario
+        Add Contact
       </ion-button>
     </ion-col>
   </ion-row>
@@ -38,8 +38,8 @@
             <ion-card-title class="title"> {{item.nombre}} {{item.apellidos}}</ion-card-title>
             <ion-card-content class="title">
             Email: {{item.email}}<br>
-            Dir.: {{item.direccion}}<br>
-            Tel.: {{item.telefono}}<br>
+            Adr.: {{item.direccion}}<br>
+            Ph.: {{item.telefono}}<br>
           </ion-card-content>
             <ion-icon size="large" color="success" name="create-outline" (click)="editarContacto(item)"></ion-icon>
             <ion-icon class="action" size="large" color="warning" name="mail-outline" (click)="openMail(item.email)"></ion-icon>

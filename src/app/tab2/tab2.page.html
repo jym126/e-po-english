@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title color="tertiary"> Notas </ion-title>
+    <ion-title color="tertiary"> Notes </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -10,7 +10,7 @@
       <ion-card>
         <ion-row>
           <ion-col size="12" style="text-align:center">
-            <ion-button size="medium" >Crear Nota</ion-button>
+            <ion-button size="medium" >Add Note</ion-button>
           <!-- <ion-card-title color="secondary">Crear nota</ion-card-title> -->
         </ion-col>
       </ion-row>
@@ -42,7 +42,7 @@
           <ion-col size="12" style="text-align: center">
             <ion-menu-toggle>
               <ion-button (click)="guardarNota()" size="small" shape="round">
-                Guardar
+                Save
               </ion-button>
             </ion-menu-toggle>
           </ion-col>
@@ -57,14 +57,14 @@
       </ion-header>
       <ion-content class="ion-padding">
         <ion-menu-toggle>
-          <ion-button>Crear nota</ion-button>
+          <ion-button>Add note</ion-button>
         </ion-menu-toggle>
       </ion-content>
     </div>
   </div>
 
   <ion-label style="font-size: 20px; margin-left: 10px" color="secondary"
-    >Notas guardadas</ion-label
+    >Saved Notes</ion-label
   >
   <ion-list *ngFor="let item of notasAlmacenadas; let i = index">
     <ion-card id="i" class="card">

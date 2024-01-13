@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title color="tertiary">
-      Calendario
+      Calendar
     </ion-title>
 
 <span class="add" slot="end">
@@ -10,24 +10,24 @@
 
   </ion-toolbar>
 </ion-header>
- 
+
 <ion-content>
   <ion-segment [(ngModel)]="calendar.mode">
     <ion-segment-button value="month">
-      <ion-label>Por mes</ion-label>
+      <ion-label>By month</ion-label>
     </ion-segment-button>
     <ion-segment-button value="week">
-      <ion-label>Por semana</ion-label>
+      <ion-label>By Week</ion-label>
     </ion-segment-button>
     <ion-segment-button value="day">
-      <ion-label>Por día</ion-label>
+      <ion-label>By Day</ion-label>
     </ion-segment-button>
   </ion-segment>
- 
+
   <ion-row>
     <ion-col size="6" style="text-align: center" slots="end">
       <ion-button (click)="presentAlertConfirm()" color="danger" fill="outline">
-        Borrar eventos
+        Delete events
       </ion-button>
     </ion-col>
 
@@ -40,11 +40,11 @@
         <ion-icon name="arrow-back" slot="icon-only"></ion-icon>
       </ion-button>
     </ion-col>
- 
+
     <ion-col size="8" class="ion-text-center">
       <h2>{{ viewTitle }}</h2>
     </ion-col>
- 
+
     <!-- Move forward one screen of the slides -->
     <ion-col size="2">
       <ion-button fill="clear" (click)="next()">
@@ -64,8 +64,8 @@
     [step]="calendar.step"
     [startingDayWeek]="calendar.startingDayWeek"
     [monthviewDisplayEventTemplate]="template"
-    allDayLabel="Evento:"
-    noEventsLabel="Sin evento"
+    allDayLabel="Event:"
+    noEventsLabel="No event"
     [startingDayMonth]="calendar.startingDayMonth"
      >
 
