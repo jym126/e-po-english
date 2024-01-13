@@ -28,10 +28,10 @@ capturaImagen = async () => {
     quality: 90,
     allowEditing: true,
     resultType: CameraResultType.Uri,
-    promptLabelHeader: 'Seleccione el origen de la imagen',
-    promptLabelPhoto: 'Desde la galería',
-    promptLabelPicture: 'Desde la cámara',
-    promptLabelCancel: 'Cancelar'
+    promptLabelHeader: 'Select image source',
+    promptLabelPhoto: 'From galery',
+    promptLabelPicture: 'From camera',
+    promptLabelCancel: 'Cancel'
   });
 
   // image.webPath will contain a path that can be set as an image src.
