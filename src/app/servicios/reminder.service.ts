@@ -11,7 +11,7 @@ export class ReminderService {
     public toastController: ToastController) { }
 
     // Schedule delayed notification
-    async notifications(id, date, titulo, descript) {
+    async notifications(id, date, title, descript) {
       let time = date.toString();
       let myId = parseInt(id)
       time = time.slice(11,16);
@@ -19,19 +19,19 @@ export class ReminderService {
       await LocalNotifications.schedule({
       notifications: [{
       id: id+1,
-      title: titulo,
+      title: title,
       body: descript,
       schedule: {at: new Date(date)}
       }]
       });
-      this.sendToast(date, titulo);
+      this.sendToast(date, title);
       }
     }
 
-    async sendToast(date, titulo){
+    async sendToast(date, title){
       //Toast de confirmación
       const toast = await this.toastController.create({
-      message: 'Añadido evento '+titulo+' para el '+date,
+      message: 'Added event '+title+' on '+date,
       duration: 2500
       });
       toast.present();

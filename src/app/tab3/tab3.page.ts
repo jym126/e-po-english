@@ -43,17 +43,17 @@ export class Tab3Page implements OnInit {
 
   ngOnInit() {}
 
-  async presentAlertConfirm(id: number, nombre: string) {
+  async presentAlertConfirm(id: number, name: string) {
     const alert = await this.alertController.create({
-      header: 'Borrar tarea',
-      message: `¿Estás seguro que quieres borrar el contacto <strong> ${nombre}</strong>?`,
+      header: 'Delete contact tarea',
+      message: `¿Are you sure you want to delete the contact <strong> ${name}</strong>?`,
       buttons: [
         {
-          text: 'Cancelar',
+          text: 'Cancel',
           role: 'cancel',
           cssClass: 'secondary'
         }, {
-          text: 'Aceptar',
+          text: 'Ok',
           handler: () => {
             this.sContactos.borrarContacto(id);
           }
@@ -88,13 +88,13 @@ export class Tab3Page implements OnInit {
       header: 'Opciones',
       buttons: [
         {
-        text: 'Compartir',
+        text: 'Share',
         icon: 'Share-outline',
         handler: ()=> this.onShareContact(id)
         },
 
         {
-          text: 'Cancelar',
+          text: 'Cancel',
           icon: 'close-circle-outline',
           role: 'cancel',
           cssClass: 'cancel'
@@ -110,9 +110,9 @@ export class Tab3Page implements OnInit {
       const {nombre, telefono, email, direccion, imagen}: any = this.contacto;
 
       await Share.share({
-        text: `Hola, comparto los datos de contacto de ${nombre}:\n
-        Direccion: ${direccion}\n
-        Teléfono: ${telefono}\n
+        text: `Hi, sharing the contact info of ${nombre}:\n
+        Address: ${direccion}\n
+        Phone: ${telefono}\n
         Email: ${email}`,
       });
     }

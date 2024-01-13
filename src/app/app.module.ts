@@ -23,7 +23,7 @@ import { CallNumber } from '@awesome-cordova-plugins/call-number/ngx';
             IonicStorageModule.forRoot(),
             HttpClientModule
           ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, { provide: LOCALE_ID, useValue: 'es-ES' }, CallNumber],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, { provide: LOCALE_ID, useValue: 'en-US' }, CallNumber],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

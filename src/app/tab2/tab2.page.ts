@@ -29,8 +29,6 @@ export class Tab2Page {
 
   guardarNota() {
     this.sNotas.guardarNota(this.nota);
-    console.log('mi nota: '+ JSON.stringify(this.nota));
-    console.log(typeof this.nota.imagen);
     this.nota.titulo = this.nota.descripcion = '';
     this.imagen = 'assets/note1.png';
   }
@@ -43,17 +41,17 @@ export class Tab2Page {
       this.nota.imagen = imagen;});
   }
 
-  async presentAlertConfirm(id: number, titulo: string) {
+  async presentAlertConfirm(id: number, title: string) {
     const alert = await this.alertController.create({
-      header: 'Borrar tarea',
-      message: `¿Estás seguro que quieres borrar la nota <strong> ${titulo}</strong>?`,
+      header: 'Delete note',
+      message: `¿Are you sure you want to delete the note <strong> ${title}</strong>?`,
       buttons: [
         {
-          text: 'Cancelar',
+          text: 'Cancel',
           role: 'cancel',
           cssClass: 'secondary'
         }, {
-          text: 'Aceptar',
+          text: 'Ok',
           handler: () => {
             this.sNota.borrarNota(id);
           }

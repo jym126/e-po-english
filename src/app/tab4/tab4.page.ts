@@ -74,7 +74,7 @@ export class Tab4Page {
     const alert = await this.alertCtrl.create({
       header: event.title,
       subHeader: event.desc,
-      message: 'El ' + start.slice(0, start.length - 7) +' a las '+ event.endHour,
+      message: 'The ' + start.slice(0, start.length - 7) +' at '+ event.endHour,
       buttons: ['OK'],
   });
   alert.present();
@@ -83,15 +83,15 @@ export class Tab4Page {
 
 async presentAlertConfirm() {
   const alert = await this.alertController.create({
-    header: 'Borrar Agenda',
-    message: `¿Estás seguro? Se borrarán TODOS los eventos del calendario</strong>?`,
+    header: 'Delete Agenda',
+    message: `Are you sure? ALL events in calendar will be deleted</strong>`,
     buttons: [
       {
-        text: 'Cancelar',
+        text: 'Cancel',
         role: 'cancel',
         cssClass: 'secondary'
       }, {
-        text: 'Aceptar',
+        text: 'Ok',
         handler: () => {
           this.removeEvents();
           this.sAgenda.borrarTodo();

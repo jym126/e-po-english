@@ -39,21 +39,21 @@ export class Tab5Page implements OnInit {
 
   async presentListConfirm(id: string, nombre: string) {
     const alert = await this.alertController.create({
-      header: 'Borrar tarea',
-      message: `¿Estás seguro que quieres borrar la lista <strong> ${nombre}</strong>?`,
+      header: 'Delete item',
+      message: `¿Are you sure you want to delete the item <strong> ${nombre}</strong>?`,
       buttons: [
         {
-          text: 'Cancelar',
+          text: 'Cancel',
           role: 'cancel',
           cssClass: 'secondary'
         }, {
-          text: 'Aceptar',
+          text: 'Ok',
           handler: () => {
             this.listaService.borrarLista(id)
             .subscribe(async(res) => {
               if(res['message'] === 'borrada') {
                 const toast = await this.toast.create({
-                  message: 'Artículo borrado con éxito',
+                  message: 'Item deleted successfully',
                   duration: 2000,
                 });
                 toast.present();

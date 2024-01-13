@@ -74,15 +74,15 @@ export class Tab1Page implements OnInit {
 
   async presentAlertConfirm(id: number, titulo: string) {
     const alert = await this.alertController.create({
-      header: 'Borrar tarea',
-      message: `¿Estás seguro que quieres borrar la tarea <strong> ${titulo}</strong>?`,
+      header: 'Delete task',
+      message: `¿Are you sure to delete task <strong> ${titulo}</strong>?`,
       buttons: [
         {
-          text: 'Cancelar',
+          text: 'Cancel',
           role: 'cancel',
           cssClass: 'secondary'
         }, {
-          text: 'Aceptar',
+          text: 'Ok',
           handler: () => {
             this.sTareas.borrarTarea(id);
           }
