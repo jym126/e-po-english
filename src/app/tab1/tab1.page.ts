@@ -8,6 +8,7 @@ import { AlertController } from '@ionic/angular';
 import { ReminderService } from '../servicios/reminder.service';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',

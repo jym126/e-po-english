@@ -5,7 +5,7 @@
 import { Injectable } from '@angular/core';
 import { Tareas } from '../modelos/tareas';
 import { Storage } from '@ionic/storage-angular';
-import { Observable } from 'rxjs';
+import { ToastController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,8 @@ export class TareasService {
 
   private _storage: Storage | null = null;
 
-  constructor(private storage: Storage) {
+  constructor(private storage: Storage,
+              private toast: ToastController) {
     this.init();
   }
 
@@ -36,17 +37,27 @@ export class TareasService {
     this.listaChecks();
   }
 
-  guardarTarea(t: Tareas) {
+  async guardarTarea(t: Tareas) {
     if(t.id === undefined) {
       const maxId = this.tarea.reduce((max, t) => t.id > max? t.id : max, -1);
       const newTask = {id: maxId + 1, titulo: t.titulo, descripcion: t.descripcion};
       this.tarea.push(newTask);
+      const toast = await this.toast.create({
+        message: 'Task added successfully!',
+        duration: 2500,
+      });
+      toast.present();
     }else{
       this.borrarTarea(t.id);
       this.tarea.push(t);
       this.tarea.sort((t1, t2) => t1.id < t2.id ? -1 : 1);
     }
     this._storage.set('tareas', this.tarea);
+    const toast = await this.toast.create({
+      message: 'Task updated successfully!',
+      duration: 2500,
+    });
+    toast.present();
     return this.tarea;
   }
 
@@ -69,8 +80,13 @@ export class TareasService {
     return this.checked;
   }
 
-  public borrarTarea(id: number) {
+  public async borrarTarea(id: number) {
     this.tarea = this.tarea.filter(t => t.id !== id);
+    const toast = await this.toast.create({
+      message: 'Item deleted successfully!',
+      duration: 2500,
+    });
+    toast.present();
     return this._storage.set('tareas', this.tarea);
 }
 }
