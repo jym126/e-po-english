@@ -40,7 +40,7 @@ export class CrearListaPage implements OnInit {
     .subscribe(async(res) => {
       if(res['message'] == 'creada') {
         const toast = await this.toast.create({
-          message: 'Artículo creado con éxito',
+          message: 'Item added successfully!',
           duration: 2500,
         });
         toast.present();
@@ -57,7 +57,7 @@ export class CrearListaPage implements OnInit {
     .subscribe(async(res) => {
       if(res['message'] == 'actualizada') {
         const toast = await this.toast.create({
-          message: 'Artículo actualizado con éxito',
+          message: 'Item updated successfully!',
           duration: 2000,
         });
         toast.present();
