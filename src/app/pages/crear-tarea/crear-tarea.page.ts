@@ -35,10 +35,5 @@ guardarTarea() {
   this.router.navigate(['tabs/tab1']);
 }
 
-actualizarTarea() {
-  this.sTareas.guardarTarea(this.tarea)
-  this.router.navigate(['tabs/tab1']);
-}
-
 }
 

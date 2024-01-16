@@ -51,13 +51,13 @@ export class TareasService {
       this.borrarTarea(t.id);
       this.tarea.push(t);
       this.tarea.sort((t1, t2) => t1.id < t2.id ? -1 : 1);
+      this._storage.set('tareas', this.tarea);
+      const toast = await this.toast.create({
+        message: 'Task updated successfully!',
+        duration: 2500,
+      });
+      toast.present();
     }
-    this._storage.set('tareas', this.tarea);
-    const toast = await this.toast.create({
-      message: 'Task updated successfully!',
-      duration: 2500,
-    });
-    toast.present();
     return this.tarea;
   }
 
@@ -83,7 +83,7 @@ export class TareasService {
   public async borrarTarea(id: number) {
     this.tarea = this.tarea.filter(t => t.id !== id);
     const toast = await this.toast.create({
-      message: 'Item deleted successfully!',
+      message: 'Task deleted successfully!',
       duration: 2500,
     });
     toast.present();
