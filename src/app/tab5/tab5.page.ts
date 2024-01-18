@@ -58,6 +58,7 @@ export class Tab5Page implements OnInit {
                 });
                 toast.present();
               }
+              this.listas
               this.doRefresh(event);
             });
           }
