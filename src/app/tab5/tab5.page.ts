@@ -57,8 +57,8 @@ export class Tab5Page implements OnInit {
                   duration: 2000,
                 });
                 toast.present();
-                this.doRefresh(event);
               }
+              this.doRefresh(event);
             });
           }
         }
@@ -71,7 +71,7 @@ export class Tab5Page implements OnInit {
     window.location.reload();
     setTimeout(() => {
       event.target.complete();
-    }, 1500);
+    }, 2500);
   }
 
 }
