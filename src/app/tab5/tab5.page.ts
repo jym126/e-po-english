@@ -72,7 +72,7 @@ export class Tab5Page implements OnInit {
     window.location.reload();
     setTimeout(() => {
       event.target.complete();
-    }, 2500);
+    }, 2000);
   }
 
 }

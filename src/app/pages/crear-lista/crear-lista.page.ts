@@ -41,7 +41,7 @@ export class CrearListaPage implements OnInit {
       if(res['message'] == 'creada') {
         const toast = await this.toast.create({
           message: 'Item added successfully!',
-          duration: 2500,
+          duration: 2000,
         });
         toast.present();
       }
@@ -49,7 +49,7 @@ export class CrearListaPage implements OnInit {
     this.router.navigate(['tabs/tab5']);
     setTimeout(() => {
       window.location.reload();
-    }, 2200);
+    }, 2000);
   }
 
   actualizarLista() {
@@ -66,6 +66,6 @@ export class CrearListaPage implements OnInit {
     this.router.navigate(['tabs/tab5']);
     setTimeout(() => {
       window.location.reload();
-    }, 2500);
+    }, 2000);
   }
 }
