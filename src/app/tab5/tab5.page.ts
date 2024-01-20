@@ -24,12 +24,12 @@ export class Tab5Page implements OnInit {
   }
 
   async listas() {
-    let data = localStorage.getItem('lista');
-    await this.listaAlmacenada.push(JSON.parse(data));
     await this.listaService.listas()
     .subscribe(async res => {
       localStorage.setItem('lista', JSON.stringify(res));
       this.load = true;
+      let data = localStorage.getItem('lista');
+      await this.listaAlmacenada.push(JSON.parse(data));
     });
   }
 
