@@ -37,9 +37,9 @@
     <ion-input type="hidden" value="/src/assets/contactos/{{contactos.value.id}}"></ion-input>
     <ion-img src="{{imagen[0]}}" alt="Sin imagen" (click)="captura()"></ion-img>
   </ion-item>
-  <ion-button type="submit" [disabled]="contactos.invalid">
+  <button class="button" type="submit" [disabled]="contactos.invalid">
     Save Contact
-  </ion-button>
+  </button>
 </form>
 </ion-col>
 </ion-row>

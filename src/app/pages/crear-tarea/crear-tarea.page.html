@@ -1,26 +1,39 @@
 <ion-header>
   <ion-toolbar>
-    <ion-icon slot="start" name="return-up-back-outline"  [routerLink]="['/tabs/tab1']" size="large"></ion-icon>
+    <ion-icon
+      slot="start"
+      name="return-up-back-outline"
+      [routerLink]="['/tabs/tab1']"
+      size="large"
+    ></ion-icon>
     <ion-title>Add New Task</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-label style="font-size: large">Task:</ion-label>
-  <ion-input type="text" placeholder="Title" [(ngModel)]="tarea.titulo"></ion-input>
-  <ion-input type="text" placeholder="Description" [(ngModel)]="tarea.descripcion"></ion-input>
+  <ion-input
+    type="text"
+    placeholder="Title"
+    [(ngModel)]="tarea.titulo"
+  ></ion-input>
+  <ion-input
+    type="text"
+    placeholder="Description"
+    [(ngModel)]="tarea.descripcion"
+  ></ion-input>
   <ion-row>
     <ion-col size="12" class="ion-text-center">
-      <ng-template [ngIf]= "data" [ngIfElse]="elseBlock">
-      <ion-button (click)="guardarTarea()" size="small" shape="round">
-        Update Task
-      </ion-button>
+      <ng-template [ngIf]="data" [ngIfElse]="elseBlock">
+        <button class="button" (click)="guardarTarea()">
+          Update Task
+        </button>
       </ng-template>
       <ng-template #elseBlock>
-            <ion-button (click)="guardarTarea()" size="small" shape="round">
-        Save Task
-      </ion-button>
-    </ng-template>
+        <button class="button" (click)="guardarTarea()" >
+          Save Task
+        </button>
+      </ng-template>
     </ion-col>
   </ion-row>
 </ion-content>
