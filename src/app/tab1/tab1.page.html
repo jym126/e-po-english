@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title color="tertiary">
-      Tasks
+      <h3 class="header">Tasks</h3>
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -12,7 +12,7 @@
         <button class="button" [routerLink]="['/crear-tarea']">Add New Task</button>
     </ion-col>
   </ion-row>
-  <ion-label style="font-size: 20px" color="primary">List of tasks</ion-label>
+  <ion-label class="label" color="primary">List of tasks</ion-label>
   <ion-list *ngFor="let item of tareasAlmacenadas; let i = index"  (click)="check(item)">
     <ion-item class="task" id="{{item.id}}">
       <!-- <ion-icon slot="start" name="document-outline" color="black"></ion-icon> -->

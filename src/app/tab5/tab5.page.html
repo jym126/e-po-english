@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title color="tertiary"> To-Do-List </ion-title>
+    <ion-title class="header" color="tertiary"> To-Do-List </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -12,7 +12,7 @@
       >
     </ion-col>
   </ion-row>
-  <ion-label style="font-size: 20px" color="primary">List</ion-label>
+  <ion-label class="label" color="primary">List</ion-label>
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>

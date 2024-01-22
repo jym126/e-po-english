@@ -1,3 +1,11 @@
+$height:35;
+$depth:6;
+$color:rgb(21, 102, 177);
+$text-color:darken($color,10%);
+$lighten-on-hover:7%;
+$button-speed:.06;
+$timing-function: ease-out;
+
 ion-toolbar {
     text-align: left;
 }
@@ -6,7 +14,10 @@ ion-toolbar {
     text-align: left;
     background-color: rgb(252, 252, 72);
     border-radius: 15px;
-    box-shadow: 5px 5px rgb(124, 124, 3);
+    box-shadow:
+    3px 1px 4px rgba(0,0,0,.3),
+    0 8px ($depth*.4+px) rgba(0,0,0,.5),
+    0 ($depth*1.8+px) 9px rgba(0,0,0,.2);
 }
 
 .trash {
@@ -63,13 +74,7 @@ ion-content {
   text-align: center;
 }
 
-$height:35;
-$depth:6;
-$color:rgb(21, 102, 177);
-$text-color:darken($color,10%);
-$lighten-on-hover:7%;
-$button-speed:.06;
-$timing-function: ease-out;
+ /*------------------------Buttons------------------------------*/
 
 .button {
   cursor:pointer;
@@ -136,3 +141,13 @@ $timing-function: ease-out;
     0 5px ($depth*.4+px) rgba(0,0,0,.5),
     0 ($depth*1.8+px) 9px rgba(0,0,0,.2);
 }
+
+/*------------------------ Header --------------------------*/
+
+.header {
+  text-shadow: 1px 0 5px;
+  font-size: 30px;
+  font-weight: 800;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
