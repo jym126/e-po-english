@@ -5,6 +5,7 @@ import { Tareas } from 'src/app/modelos/tareas';
 import { TareasService } from 'src/app/servicios/tareas.service';
 import { ActivatedRoute } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 
 
 @Component({
@@ -21,7 +22,8 @@ export class CrearTareaPage implements OnInit {
   constructor(private router: Router,
               private sTareas: TareasService,
               private route: ActivatedRoute,
-              private toast: ToastController) { }
+              private toast: ToastController,
+              private alertController: AlertController) { }
 
   ngOnInit() {
     this.data = JSON.parse(this.route.snapshot.paramMap.get("data"));
@@ -33,6 +35,30 @@ export class CrearTareaPage implements OnInit {
 guardarTarea() {
   this.sTareas.guardarTarea(this.tarea)
   this.router.navigate(['tabs/tab1']);
+}
+
+async alert() {
+    const alert = await this.alertController.create({
+      header: 'Empty task',
+      message: `Task description can´t be empty!`,
+      buttons: [ {
+          text: 'Ok',
+          handler: () => {
+            alert.dismiss();
+          }
+        }
+      ]
+    });
+     await alert.present();
+
+}
+
+checkDisabled() {
+  if(this.tarea.descripcion === '') {
+    return true;
+  }else {
+    return false;
+  }
 }
 
 }

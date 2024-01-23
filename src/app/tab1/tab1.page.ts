@@ -111,5 +111,4 @@ export class Tab1Page implements OnInit {
     document.getElementById(item.id).setAttribute('style',this.checked[item.id]);
     }
 
-
   }

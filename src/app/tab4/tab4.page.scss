@@ -10,7 +10,7 @@ $timing-function: ease-out;
     padding-left: 0.5rem;
     padding-bottom: 0.4rem;
   }
-   
+
   .event-indicator {
     background: var(--ion-color-success);
     width: 5px;
@@ -18,17 +18,17 @@ $timing-function: ease-out;
     border-radius: 5px;
     display: table-cell;
   }
-   
+
   :host ::ng-deep {
     .monthview-primary-with-event {
       background-color: white !important;
     }
-   
+
     .monthview-selected {
       background-color: let(--ion-color-success) !important;
     }
   }
-   
+
   .with-event {
     background-color: let(--ion-color-primary);
     border-radius: 15px;

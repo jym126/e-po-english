@@ -21,6 +21,7 @@
     type="text"
     placeholder="Description"
     [(ngModel)]="tarea.descripcion"
+    required="true"
   ></ion-input>
   <ion-row>
     <ion-col size="12" class="ion-text-center">
@@ -30,8 +31,8 @@
         </button>
       </ng-template>
       <ng-template #elseBlock>
-        <button class="button" (click)="guardarTarea()" >
-          Save Task
+        <button  class="button" (click)="checkDisabled() ? alert(): guardarTarea()">
+         Save Task
         </button>
       </ng-template>
     </ion-col>

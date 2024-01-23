@@ -62,4 +62,28 @@ export class Tab2Page {
     await alert.present();
   }
 
+  async alert() {
+    const alert = await this.alertController.create({
+      header: 'Empty task',
+      message: `Task description can´t be empty!`,
+      buttons: [ {
+          text: 'Ok',
+          handler: () => {
+            alert.dismiss();
+          }
+        }
+      ]
+    });
+     await alert.present();
+
+}
+
+checkDisabled() {
+  if(this.nota.descripcion === '') {
+    return true;
+  }else {
+    return false;
+  }
+}
+
 }
