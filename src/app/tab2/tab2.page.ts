@@ -64,8 +64,8 @@ export class Tab2Page {
 
   async alert() {
     const alert = await this.alertController.create({
-      header: 'Empty task',
-      message: `Task description can´t be empty!`,
+      header: 'Empty note',
+      message: `Note description can´t be empty!`,
       buttons: [ {
           text: 'Ok',
           handler: () => {

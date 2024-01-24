@@ -74,7 +74,7 @@ export class Tab3Page implements OnInit {
   }
 
   openMail(mail){
-    const mailto = 'mailto:'+mail+'+?subject=Hola&body=Hola';
+    const mailto = 'mailto:'+mail+'+?subject=Urgent!&body=Hi';
     window.location.href = mailto;
     return mailto;
   }
@@ -114,6 +114,7 @@ export class Tab3Page implements OnInit {
         Address: ${direccion}\n
         Phone: ${telefono}\n
         Email: ${email}`,
+        title: "important!"
       });
     }
 }
