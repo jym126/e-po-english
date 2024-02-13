@@ -35,10 +35,10 @@
             </ion-avatar><br><br>
           </ion-col>
           <ion-col size="8">
-            <ion-card-title class="title"> {{item.nombre}} {{item.apellidos}}</ion-card-title>
+            <ion-card-title class="title"> {{item.nombre | titlecase}} {{item.apellidos | titlecase}}</ion-card-title>
             <ion-card-content class="title">
             Email: {{item.email}}<br>
-            Adr.: {{item.direccion}}<br>
+            Adr.: {{item.direccion | titlecase}}<br>
             Ph.: {{item.telefono}}<br>
           </ion-card-content>
             <ion-icon size="large" color="success" name="create-outline" (click)="editarContacto(item)"></ion-icon>

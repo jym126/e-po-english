@@ -52,13 +52,13 @@ export class TareasService {
       this.borrarTarea(t.id);
       this.tarea.push(t);
       this.tarea.sort((t1, t2) => t1.id < t2.id ? -1 : 1);
-      this._storage.set('tareas', this.tarea);
       const toast = await this.toast.create({
         message: 'Task updated successfully!',
         duration: 2500,
       });
       toast.present();
     }
+    this._storage.set('tareas', this.tarea);
     return this.tarea;
   }
 
