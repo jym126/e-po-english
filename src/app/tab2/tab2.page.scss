@@ -96,7 +96,7 @@ ion-content {
   }
   height:$height+px;
   line-height:$height+px;
-  padding: 0 (($height/2)+px);
+  padding: 0 (calc($height/2)+px);
   display:inline-block;
   width:auto;
   background: linear-gradient(to bottom,

@@ -41,7 +41,7 @@ $timing-function: ease-out;
   }
   height:$height+px;
   line-height:$height+px;
-  padding: 0 (($height/3)+px);
+  padding: 0 (calc($height/3)+px);
   display:inline-block;
   width:auto;
   background: linear-gradient(to bottom,
