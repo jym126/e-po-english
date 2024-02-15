@@ -46,7 +46,6 @@ export class ContactosService {
       const newContacto = {id: maxId + 1, nombre: c.nombre, apellidos: c.apellidos, telefono: c.telefono, direccion: c.direccion, email: c.email, imagen: c.imagen};
       this.contactos.push(newContacto);
     }else{
-      this.borrarContacto(c.id);
       this.contactos.push(c);
       this.contactos.sort((c1, c2) => c1.id < c2.id ? -1 : 1);
     }
