@@ -70,7 +70,7 @@ export class Tab3Page implements OnInit {
 
   editarContacto(datos) {
     this.router.navigate(['../contactos', {data: JSON.stringify(datos)}] );
-    // this.sContactos.borrarContacto(datos.id);
+    this.sContactos.borrarContacto(datos.id);
   }
 
   openMail(mail){
