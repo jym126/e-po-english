@@ -36,10 +36,20 @@
     <ion-label>Image:</ion-label>
     <ion-input type="hidden" value="/src/assets/contactos/{{contactos.value.id}}"></ion-input>
     <ion-img src="{{imagen[0]}}" alt="Sin imagen" (click)="captura()"></ion-img>
-  </ion-item>
-  <button class="button" type="submit" [disabled]="contactos.invalid">
-    Save Contact
-  </button>
+  </ion-item>  <ion-row>
+    <ion-col size="12" class="ion-text-center">
+      <ng-template [ngIf]="value" [ngIfElse]="elseBlock">
+        <button class="button" type="submit" [disabled]="contactos.invalid">
+          Update Contact
+        </button>
+      </ng-template>
+      <ng-template #elseBlock>
+        <button class="button" type="submit" [disabled]="contactos.invalid">
+          Save Contact
+        </button>
+      </ng-template>
+    </ion-col>
+  </ion-row>
 </form>
 </ion-col>
 </ion-row>

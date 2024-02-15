@@ -40,6 +40,7 @@ export class TareasService {
 
   async guardarTarea(t: Tareas) {
     if(t.id === undefined) {
+      console.log(t.id);
       const maxId = this.tarea.reduce((max, t) => t.id > max? t.id : max, -1);
       const newTask = {id: maxId + 1, titulo: t.titulo, descripcion: t.descripcion};
       this.tarea.push(newTask);
@@ -49,6 +50,7 @@ export class TareasService {
       });
       toast.present();
     }else{
+      console.log(t.id);
       this.borrarTarea(t.id);
       this.tarea.push(t);
       this.tarea.sort((t1, t2) => t1.id < t2.id ? -1 : 1);

@@ -63,6 +63,7 @@ onSubmit() {
   this.contactos.value.imagen = this.value.imagen;
   }
   this.sContactos.guardarContacto(this.contactos.value);
+  console.log(this.contactos.value);
 }
 
 captura() {
