@@ -62,7 +62,7 @@ onSubmit(datos) {
   if(!this.foto) {
   this.contactos.value.imagen = this.value.imagen;
   }
-  this.sContactos.guardarContacto(this.contactos.value);
+  this.sContactos.guardarContacto(datos);
 }
 
 captura() {
