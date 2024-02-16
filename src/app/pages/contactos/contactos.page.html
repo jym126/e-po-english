@@ -11,7 +11,7 @@
 
     <ion-title color="primary">Add contact</ion-title>
 
-<form [formGroup] = "contactos" (ngSubmit)="onSubmit(datos)">
+<form [formGroup] = "contactos" (ngSubmit)="onSubmit(datos.id)">
   <ion-item>
     <ion-label position="floating">Name<ion-text color="danger">*</ion-text></ion-label>
     <ion-input required formControlName="nombre" type="text" [(ngModel)]="datos.nombre"></ion-input>

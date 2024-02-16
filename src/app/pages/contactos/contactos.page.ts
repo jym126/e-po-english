@@ -58,11 +58,11 @@ ngOnInit() {
   };
 }
 
-onSubmit(datos) {
+onSubmit(id) {
   if(!this.foto) {
   this.contactos.value.imagen = this.value.imagen;
   }
-  this.sContactos.guardarContacto(datos);
+  this.sContactos.guardarContacto(this.contactos.value, id);
 }
 
 captura() {
