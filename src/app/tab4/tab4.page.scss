@@ -135,13 +135,13 @@ $timing-function: ease-out;
   cursor:pointer;
   margin-left:4px;
   margin-bottom:10px;
-  text-shadow:0 -2px 0 darken($color,20%),0 1px 1px lighten($color2,20%) ;
+  text-shadow:0 -2px 0 darken($color2,20%),0 1px 1px lighten($color2,20%) ;
   box-sizing:border-box;
   font-size:1em;
   font-family: Helvetica, Arial, Sans-Serif;
   text-decoration:none;
   font-weight:bold;
-  color:$text-color2;
+  color: black;
   &:visited {
     color:$text-color2;
   }
