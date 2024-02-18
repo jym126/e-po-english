@@ -45,7 +45,7 @@ export class Tab3Page implements OnInit {
 
   async presentAlertConfirm(id: number, name: string) {
     const alert = await this.alertController.create({
-      header: 'Delete contact tarea',
+      header: 'Delete contact',
       message: `¿Are you sure you want to delete the contact <strong> ${name}</strong>?`,
       buttons: [
         {

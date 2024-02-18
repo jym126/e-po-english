@@ -1,12 +1,20 @@
 
   <ion-content>
     <ion-item>
-      <ion-label position="stacked">Title</ion-label>
-      <ion-input tpye="text" [(ngModel)]="event.title"></ion-input>
+      <ion-label position="stacked">Title</ion-label><br>
+      <ion-input
+      tpye="text" [(ngModel)]="event.title"
+      style="background-color: aliceblue">
+    </ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="stacked">Descripción</ion-label>
-      <ion-input type="text" [(ngModel)]="event.desc"></ion-input>
+      <ion-label position="stacked">Description</ion-label>
+      <ion-textarea
+      type="text" [(ngModel)]="event.desc"
+      spellcheck="true"
+      style="background-color: aliceblue"
+      placeholder="Description...">
+      </ion-textarea>
     </ion-item>
 
     <ion-datetime
