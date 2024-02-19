@@ -105,7 +105,7 @@ export class Tab1Page implements OnInit {
   }
 
   notify(id) {
-    document.getElementById('n'+id).setAttribute('[hidden]', 'false')
+    document.getElementById('n'+id).setAttribute('hidden', 'false')
   }
 
 
