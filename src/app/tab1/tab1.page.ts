@@ -101,6 +101,11 @@ export class Tab1Page implements OnInit {
 
   notifications(id, date, titulo, descript){
     this.reminder.notifications(id, date, titulo, descript);
+    this.notify(id)
+  }
+
+  notify(id) {
+    document.getElementById('n'+id).setAttribute('[hidden]', 'false')
   }
 
 
