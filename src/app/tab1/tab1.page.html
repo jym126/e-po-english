@@ -20,7 +20,7 @@
 
       <!-- <ion-icon slot="start" name="document-outline" color="black"></ion-icon> -->
       {{item.titulo | titlecase}}: {{item.descripcion | titlecase}}
-      <ion-icon class="notify" id="n{{item.id}}" name="notifications" slot="end" [hidden]="true"></ion-icon>
+      <ion-icon class="notify" id="n{{item.id}}" name="notifications" slot="end"></ion-icon>
       <ion-icon class="date" id="date{{item.id}}" slot="end" name="time-outline" value="date" (click)="presentPopover($event)">
       </ion-icon>
       <ion-checkbox class="check" id="c{{item.id}}" slot="start" [(ngModel)]="item.isChecked" style="position: relative"></ion-checkbox>
