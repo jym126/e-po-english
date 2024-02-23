@@ -84,7 +84,7 @@ export class Tab3Page implements OnInit {
 
   async onOpenMenu(id) {
     const actionSheet = await this.actionSheetController.create({
-      header: 'Opciones',
+      header: 'Options',
       buttons: [
         {
         text: 'Share',
