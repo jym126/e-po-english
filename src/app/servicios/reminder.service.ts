@@ -35,8 +35,5 @@ export class ReminderService {
       duration: 2500
       });
       toast.present();
-      setTimeout(() => {
-        window.location.reload();
-      }, 3000);
       }
 }

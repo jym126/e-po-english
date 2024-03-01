@@ -6,6 +6,7 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
+
   {
     path: 'crear-tarea',
     loadChildren: () => import('./pages/crear-tarea/crear-tarea.module').then( m => m.CrearTareaPageModule)
@@ -26,6 +27,7 @@ const routes: Routes = [
     path: 'crear-lista',
     loadChildren: () => import('./pages/crear-lista/crear-lista.module').then( m => m.CrearListaPageModule)
   }
+
 ];
 @NgModule({
   imports: [

@@ -1,0 +1,210 @@
+// Copyright (c) 2024 by Luca (https://codepen.io/drizzt/pen/pbmBrX)
+
+// Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+// The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+      @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+      @content;
+  }
+  @-ms-keyframes #{$animation-name} {
+      @content;
+  }
+  @-o-keyframes #{$animation-name} {
+      @content;
+  }
+  @keyframes #{$animation-name} {
+      @content;
+  }
+}
+
+@mixin animation($str) {
+-webkit-animation: #{$str};
+-moz-animation: #{$str};
+-ms-animation: #{$str};
+-o-animation: #{$str};
+animation: #{$str};
+}
+
+$atomSize : 300px;
+$nucleusSize : 25px;
+$orbitSize : 200px;
+$electronSize : 10px;
+
+$protonColor: #2196F3;
+$electronColor: #FF9800;
+$orbitColor: rgba(207, 33, 41, 0.5);
+
+body{
+text-align: center;
+background:rgba(0,0,0,1);
+}
+#atom{
+  margin-top: 80px;
+  width: $atomSize;
+  height: $atomSize;
+  display:inline-block;
+}
+
+#nucleus, .orbit, .electron, .orbitTrain, .electronTrain{
+position:absolute;
+top:0;
+right:0;
+bottom:0;
+left:0;
+width:2*$nucleusSize;
+height:2*$nucleusSize;
+border-radius:50%;
+margin: auto;
+}
+
+#nucleus{
+background:$protonColor;
+box-shadow: 0 0 15px $protonColor;
+@include animation('shining 2s infinite linear');
+}
+
+.orbit:before {
+content: " ";
+position: absolute;
+z-index: -1;
+top: 0px;
+left: 0px;
+right: 0px;
+bottom: 0px;
+border: 2px solid rgba(248, 163, 163, 0.2);
+border-radius:50%;
+}
+
+.orbit{
+
+width:$orbitSize;
+height:$orbitSize;
+border:2;
+transform-style: preserve-3d;
+@include animation('orbitSpecial 1.5s infinite linear');
+
+.electron{
+  position:relative;
+  top: calc($orbitSize - $electronSize)/2;
+  width:$electronSize;
+  height:$electronSize;
+  background:$electronColor;
+  box-shadow: 0 0 15px $electronColor;
+  border-radius:50%;
+  transform: calc(translateX(calc($orbitSize/2)));
+  @include animation('electronAnimation 1.5s infinite linear');
+}
+}
+
+.orbit:nth-child(4){
+transform:rotateY(65deg) rotateX(5deg);
+  animation-delay: -1s;
+.electron{
+  animation-delay: -1s;
+}
+}
+
+.orbit:nth-child(2){
+transform:rotateY(65deg) rotateX(-54deg);
+animation-delay: -1s;
+animation-duration: 1s;
+.electron{
+  animation-duration: 1s;
+}
+}
+
+.orbit:nth-child(5){
+  transform:rotateY(45deg) rotateX(100deg);
+  animation-delay: -1s;
+  animation-duration: 1s;
+  .electron{
+    animation-duration: 2s;
+  }
+  }
+
+  .orbit:nth-child(6){
+    transform:rotateY(60deg) rotateX(230deg);
+    animation-delay: -1s;
+    animation-duration: 1s;
+    .electron{
+      animation-duration: 2s;
+    }
+    }
+
+.orbit:nth-child(3){
+transform:rotateY(65deg) rotateX(54deg);
+}
+
+@include keyframes(electronAnimation) {
+0% { transform: rotateZ(10deg)  translateX(calc($orbitSize/2)) rotateZ(-0deg) rotateY(-65deg)}
+100% { transform: rotateZ(360deg) translateX(calc($orbitSize/2)) rotateZ(-360deg) rotateY(-65deg)}
+}
+
+@include keyframes(orbitSpecial) {
+0% { border:0;
+     border-top: 1px solid $orbitColor}
+35% { border:0;
+      border-right: 1px solid $orbitColor}
+70% { border:0;
+      border-bottom: 1px solid $orbitColor}
+100% { border:0;
+     border-left: 1px solid $orbitColor}
+}
+
+@include keyframes(shining) {
+0% {
+  box-shadow: 0 0 0 transparent;
+} 50% {
+  box-shadow: 0 0 40px $protonColor;
+} 100% {
+  box-shadow: 0 0 0 transparent;
+}
+}
+
+.header {
+  text-align: center;
+  color: rgb(21, 102, 177);
+  text-shadow: 1px 0 3px;
+  font-size: 30px;
+  font-weight: 800;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.header2 {
+  margin-top: 70px;
+  text-align: center;
+  color: rgb(21, 102, 177);
+  text-shadow: 1px 0 3px;
+  font-size: 20px;
+  font-weight: 800;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.header3 {
+  text-align: center;
+  color: rgb(21, 102, 177);
+  text-shadow: 1px 0 3px;
+  font-size: 20px;
+  font-weight: 800;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.header4 {
+  text-align: left;
+  color: rgb(21, 102, 177);
+  text-shadow: 1px 0 3px;
+  font-size: 15px;
+  font-weight: 800;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+p {
+  color: rgb(156, 96, 27);
+  font-size: 12px;
+}
