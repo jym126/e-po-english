@@ -196,6 +196,7 @@ transform:rotateY(65deg) rotateX(54deg);
 }
 
 .header4 {
+  margin-left: 5px;
   text-align: left;
   color: rgb(21, 102, 177);
   text-shadow: 1px 0 3px;
@@ -203,8 +204,12 @@ transform:rotateY(65deg) rotateX(54deg);
   font-weight: 800;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-
-p {
+#events {
+  padding: 0;
+  margin-left: 5px;
+  margin-bottom: 1px;
+  line-height: 5px;
   color: rgb(156, 96, 27);
   font-size: 12px;
 }
+

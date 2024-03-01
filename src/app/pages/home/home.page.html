@@ -28,9 +28,9 @@
 </div>
 <h1 class="header3">On Your Hand</h1>
 
-<h4 class="header4">Events:</h4>
+<h4 class="header4">Events List:</h4>
 <div *ngFor="let item of agenda">
-  <p>{{item.title}} - {{item.desc}}</p>
+  <p id="events" (click)="onEventSelected(item)">{{item.title}}: {{item.desc}}</p>
 </div>
 
 <ion-content>
