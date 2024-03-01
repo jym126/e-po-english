@@ -9,15 +9,16 @@ $button-speed:.06;
 $timing-function: ease-out;
 
 .indicator-container {
-    padding-left: 0.5rem;
+    padding-left: 0.4rem;
     padding-bottom: 0.4rem;
+    background-color: rgb(210, 219, 248);
   }
 
   .event-indicator {
     background: var(--ion-color-success);
-    width: 5px;
-    height: 5px;
-    border-radius: 5px;
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
     display: table-cell;
   }
 
@@ -27,19 +28,19 @@ $timing-function: ease-out;
     }
 
     .monthview-selected {
-      background-color: let(--ion-color-success) !important;
+      background-color: rgb(81, 146, 243) !important;
     }
   }
 
   .with-event {
-    background-color: let(--ion-color-primary);
-    border-radius: 15px;
+    background-color: rgb(210, 219, 248);
+    border-radius: 10px;
   }
 
   .add {
     margin-right: 10px;
     border: 3px solid blue;
-    border-radius: 10px;
+    border-radius: 5px;
   }
 
   .icon {
@@ -53,14 +54,6 @@ $timing-function: ease-out;
   .template{
     color: rgb(4, 6, 131);
     background-color: rgb(229, 235, 252);
-  }
-
-  .indicator-container{
-    background-color: rgb(210, 219, 248);
-  }
-
-  .event-indicator{
-    background-color: red;
   }
 
    /* Icon Animation property */
