@@ -31,6 +31,12 @@
     padding: 25px;
 }
 
+.alert-wrapper {
+  .alert-button:first-child {
+    color: red;
+  }
+}
+
 //Hacer el texto seleccionable (poder copiar)
 * {
     -webkit-user-select: text;

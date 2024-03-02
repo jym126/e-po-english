@@ -8,7 +8,11 @@ $lighten-on-hover:7%;
 $button-speed:.06;
 $timing-function: ease-out;
 
-
+.danger {
+  .alert-button:nth-child{
+    color: $color2;
+  }
+}
 
   .event-indicator {
     background: rgb(4, 170, 4);

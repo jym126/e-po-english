@@ -8,7 +8,6 @@ import { CalendarMode, Step } from 'ionic2-calendar/calendar';
 import { AgendaService } from '../servicios/agenda.service';
 
 
-
 @Component({
   selector: 'app-tab4',
   templateUrl: './tab4.page.html',
@@ -37,8 +36,7 @@ export class Tab4Page {
             private alertCtrl: AlertController,
             @Inject(LOCALE_ID) private locale: string,
             private modalCtrl: ModalController,
-            private sAgenda: AgendaService,
-            private alertController: AlertController
+            private sAgenda: AgendaService
   ) {this.carga();}
 
   get agendaAlmacenada() {
@@ -72,17 +70,31 @@ export class Tab4Page {
     const start = formatDate(event.startTime, 'medium', this.locale);
 
     const alert = await this.alertCtrl.create({
-      header: event.title,
-      subHeader: event.desc,
+      header: 'Event',
+      subHeader: event.title + ': ' + event.desc,
       message: 'The ' + start.slice(0, start.length - 7) +' at '+ event.endHour,
-      buttons: ['OK'],
+      cssClass: 'danger',
+      buttons: [
+        {
+          text: 'Del',
+          handler: () => {this.sAgenda.borrarAgenda(event.id), this.doRefresh(event)},
+        }, {
+          text: 'Ok'
+        }
+      ]
   });
   alert.present();
+}
 
+doRefresh(event) {
+  window.location.reload();
+  setTimeout(() => {
+    event.target.complete();
+  }, 2000);
 }
 
 async presentAlertConfirm() {
-  const alert = await this.alertController.create({
+  const alert = await this.alertCtrl.create({
     header: 'Delete Agenda',
     message: `Are you sure? ALL events in calendar will be deleted</strong>`,
     buttons: [

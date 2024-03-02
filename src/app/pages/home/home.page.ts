@@ -19,7 +19,8 @@ export class HomePage implements OnInit {
   constructor(private router: Router,
               private storage: Storage,
               @Inject(LOCALE_ID) private locale: string,
-              private alertCtrl: AlertController) { }
+              private alertCtrl: AlertController,
+              private sAgenda: AgendaService) { }
 
   async ngOnInit() {
     const storage = await this.storage.create();
@@ -39,13 +40,28 @@ export class HomePage implements OnInit {
       const start = formatDate(event.startTime, 'medium', this.locale);
 
       const alert = await this.alertCtrl.create({
-        header: event.title,
-        subHeader: event.desc,
+        header: 'Event',
+        subHeader: event.title + ': ' + event.desc,
         message: 'The ' + start.slice(0, start.length - 7) +' at '+ event.endHour,
-        buttons: ['OK'],
+        cssClass: 'danger',
+        buttons: [
+          {
+            text: 'Del',
+            handler: () => {this.sAgenda.borrarAgenda(event.id), this.doRefresh(event)},
+          }, {
+            text: 'Ok'
+          }
+        ]
     });
     alert.present();
 
+  }
+
+  doRefresh(event) {
+    window.location.reload();
+    setTimeout(() => {
+      event.target.complete();
+    }, 2000);
   }
 
 }
