@@ -12,22 +12,20 @@ ion-toolbar {
 }
 
 .card {
-  width:380px;
+  width:375px;
  height:auto;
  position:relative;
- z-index: 10;
- background:#ffa;
- margin:10px auto;
- padding:10px;
- border-radius:0 0 0 30px/45px;
+ background-color:#ffa;
  box-shadow:
  inset 0 -15px 20px rgba(0,0,0,0.2),
  inset 0 25px 10px rgba(0,0,0,0.2),
- 10px 10px 5px #aaaaaa;
+ 10px 10px 5px rgba(0,0,0,0.4);
+ margin:10px auto;
+ padding:10px;
+ border-radius:0 0px 0 30px/45px;
  font-family: 'Permanent Marker', cursive;
  line-height:1.7em;
  font-size:15px;
- mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
  color:#130d6b;
  overflow: visible;
 }
@@ -40,13 +38,12 @@ ion-toolbar {
  height:25px;
  background:#ffa;
  box-shadow:
-   3px 2px 10px rgba(0,0,0,0.2),
+   5px 2px 8px rgba(0,0,0,0.4),
    inset 15px -15px 15px rgba(0,0,0,0.3);
  left:0;
  bottom:0;
  z-index:2;
  transform:skewX(25deg);
- overflow: visible;
 }
 
 .card:after {
@@ -55,7 +52,6 @@ ion-toolbar {
  position:absolute;
  width:80%;
  height:20px;
- border-radius: 10% ;
  bottom:0px;
  left:10%;
  overflow: visible;
