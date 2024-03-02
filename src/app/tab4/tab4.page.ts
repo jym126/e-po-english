@@ -107,6 +107,10 @@ async presentAlertConfirm() {
     this.eventSource = [];
   }
 
+  today() {
+    this.calendar.currentDate = new Date();
+}
+
 
   async openCalModal() {
     const modal = await this.modalCtrl.create({

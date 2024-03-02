@@ -62,14 +62,11 @@ ion-card.ion-color .ion-inherit-color, ion-card-header.ion-color .ion-inherit-co
 }
 
 .card{
-  border-top-left-radius: 35px;
-  border-bottom-right-radius: 35px;
-  border-top-right-radius: 5px;
-  border-bottom-left-radius: 5px;
+  border-radius: 35px 5px 35px 5px;
   background-color: rgb(21, 102, 177);
   box-shadow:
-  3px 1px 4px rgba(0,0,0,.3),
-  0 6px ($depth*.4+px) rgba(0,0,0,.5),
+  4px 4px 4px rgba(49, 49, 49, 0.8),
+  0 9px ($depth*.8+px) rgba(0,0,0,.3),
   0 ($depth*1.8+px) 9px rgba(0,0,0,.2);
 }
 
