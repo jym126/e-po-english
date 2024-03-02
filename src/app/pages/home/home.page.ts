@@ -30,7 +30,6 @@ export class HomePage implements OnInit {
   async listaAgenda() {
     const agenda = await this._storage.get('agenda');
     this.agenda = agenda || [];
-    console.log(this.agenda[0].title);
     return this.agenda;
   }
 

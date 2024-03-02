@@ -28,11 +28,10 @@ export class AgendaService {
   }
 
   guardarAgenda(t: any) {
-    console.log(t);
     if(t.id === '') {
       const maxId = this.agenda.reduce((max, t) => t.id > max? t.id : max, -1);
       const newTask = {id: maxId + 1, title: t.title, desc: t.desc, startTime: t.startTime, endTime: t.endTime, allDay: t.allDay, endHour: t.endHour, startHour: t.startHour};
-      this.agenda.push(newTask);
+      this.agenda.unshift(newTask);
     }else{
       this.borrarAgenda(t.id);
       this.agenda.push(t);
