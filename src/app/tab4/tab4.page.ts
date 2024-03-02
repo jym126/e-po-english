@@ -39,6 +39,10 @@ export class Tab4Page {
             private sAgenda: AgendaService
   ) {this.carga();}
 
+ngOnInit() {
+  this.carga()
+}
+
   get agendaAlmacenada() {
     return this.sAgenda.getLocalAgenda;
   }
@@ -77,20 +81,13 @@ export class Tab4Page {
       buttons: [
         {
           text: 'Del',
-          handler: () => {this.sAgenda.borrarAgenda(event.id), this.doRefresh(event)},
+          handler: () => {this.sAgenda.borrarAgenda(event.id), this.ngOnInit()},
         }, {
           text: 'Ok'
         }
       ]
   });
   alert.present();
-}
-
-doRefresh(event) {
-  window.location.reload();
-  setTimeout(() => {
-    event.target.complete();
-  }, 2000);
 }
 
 async presentAlertConfirm() {

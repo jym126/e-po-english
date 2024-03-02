@@ -47,7 +47,7 @@ export class HomePage implements OnInit {
         buttons: [
           {
             text: 'Del',
-            handler: () => {this.sAgenda.borrarAgenda(event.id), this.doRefresh(event)},
+            handler: () => {this.sAgenda.borrarAgenda(event.id), this.ngOnInit()},
           }, {
             text: 'Ok'
           }
@@ -55,13 +55,6 @@ export class HomePage implements OnInit {
     });
     alert.present();
 
-  }
-
-  doRefresh(event) {
-    window.location.reload();
-    setTimeout(() => {
-      event.target.complete();
-    }, 2000);
   }
 
 }

@@ -42,11 +42,7 @@ export class Tab5Page implements OnInit {
       header: 'Delete item',
       message: `¿Are you sure you want to delete the item <strong> ${nombre}</strong>?`,
       buttons: [
-        {
-          text: 'Cancel',
-          role: 'cancel',
-          cssClass: 'secondary'
-        }, {
+         {
           text: 'Ok',
           handler: () => {
             this.listaService.borrarLista(id)
@@ -58,10 +54,14 @@ export class Tab5Page implements OnInit {
                 });
                 toast.present();
               }
-              this.listas
-              this.doRefresh(event);
+              await this.doRefresh(event);
             });
           }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary'
         }
       ]
     });
