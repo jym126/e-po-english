@@ -28,7 +28,7 @@
 </div>
 
 <h4 class="header4">Events List:</h4>
-<div *ngFor="let item of (agenda | slice:agenda.length - 6)">
+<div *ngFor="let item of (agenda | slice:agenda.length - 4)">
   <p id="events" (click)="onEventSelected(item)">{{item.title | titlecase}}: {{item.desc | titlecase}}</p><br>
 </div>
 
