@@ -28,8 +28,8 @@
 </div>
 
 <h4 class="header4">Events List:</h4>
-<div *ngFor="let item of agenda">
-  <p id="events" (click)="onEventSelected(item)">{{item.title | uppercase}}: {{item.desc | uppercase}}</p>
+<div *ngFor="let item of (agenda | slice:agenda.length - 10)">
+  <p id="events" (click)="onEventSelected(item)">{{item.title | titlecase}}: {{item.desc | titlecase}}</p>
 </div>
 
 <ion-content>
