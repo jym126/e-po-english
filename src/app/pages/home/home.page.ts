@@ -15,6 +15,14 @@ export class HomePage implements OnInit {
 
   agenda: any[] = [];
   private _storage: Storage | null = null;
+  tips = ["You can events to calendar tha appears in the main page" ,
+          "You can add remider to taks to be notified on time",
+          "A bell icon will be added to task with reminders",
+          "A color dot will be set in days with events in calendar",
+          "If item list last to load you can drag dowm page to refresh",
+          "Pictures or photos can be added to the sticky notes"];
+
+  todayTips: string;
 
   constructor(private router: Router,
               private storage: Storage,
@@ -26,6 +34,7 @@ export class HomePage implements OnInit {
     const storage = await this.storage.create();
     this._storage = storage;
     this.listaAgenda();
+    this.randomTips();
   }
 
   async listaAgenda() {
@@ -55,6 +64,11 @@ export class HomePage implements OnInit {
     });
     alert.present();
 
+  }
+
+  //Function to show tips of the day
+  randomTips() {
+    this.todayTips = this.tips[(Math.floor(Math.random() * this.tips.length))];
   }
 
 }
