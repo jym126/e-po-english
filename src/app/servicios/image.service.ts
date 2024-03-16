@@ -3,7 +3,7 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage-angular';
 import { Imagen } from '../modelos/contactos';
-import { Camera, CameraResultType } from '@capacitor/camera';
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +31,7 @@ capturaImagen = async () => {
     promptLabelHeader: 'Select image source',
     promptLabelPhoto: 'From galery',
     promptLabelPicture: 'From camera',
-    promptLabelCancel: 'Cancel'
+    promptLabelCancel: 'Cancel',
   });
 
   // image.webPath will contain a path that can be set as an image src.
@@ -43,5 +43,6 @@ capturaImagen = async () => {
   // Can be set to the src of an image now
   return imageUrl;
 };
+
 
 }
