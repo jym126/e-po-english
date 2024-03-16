@@ -28,9 +28,23 @@
   </div>
 </div>
 
-<h4 class="header4">Events List:</h4>
-<div *ngFor="let item of (agenda | slice: 0 : 4)">
-  <p id="events" (click)="onEventSelected(item)">{{item.title | titlecase}}: {{item.desc | titlecase}}</p><br>
+<div class="fastview">
+<div>  
+  <h4 class="header4">Events List:</h4>
+  <div *ngFor="let item of (agenda | slice: 0 : 4)">
+    <p id="events" (click)="onEventSelected(item)">{{item.title | titlecase}}: {{item.desc | titlecase}}</p><br>
+  </div>
+</div>
+<div>
+  <h4 class="header4">Pending tasks:</h4>
+  <p id="events" [routerLink]="['/tabs/tab1']">
+    {{pendingTasks}}
+  </p>
+  <h4 class="header4">Notes:</h4>
+  <p id="events" [routerLink]="['/tabs/tab2']">
+    {{pendingNotes}}
+  </p>
+</div>
 </div>
 
 <ion-content>

@@ -23,6 +23,8 @@ export class HomePage implements OnInit {
           "Pictures or photos can be added to the sticky notes"];
 
   todayTips: string;
+  pendingTasks: string;
+  pendingNotes: string;
 
   constructor(private router: Router,
               private storage: Storage,
@@ -35,6 +37,7 @@ export class HomePage implements OnInit {
     this._storage = storage;
     this.listaAgenda();
     this.randomTips();
+    this.pending();
   }
 
   async listaAgenda() {
@@ -66,9 +69,20 @@ export class HomePage implements OnInit {
 
   }
 
-  //Function to show tips of the day
+  //Function to show tips of the day to show in home page
   randomTips() {
     this.todayTips = this.tips[(Math.floor(Math.random() * this.tips.length))];
   }
+
+  //Get the numbers of created tasks and notes to show in home page
+  async pending() {
+    let tareas = await this._storage.get('tareas');
+    this.pendingTasks = tareas.length
+    let notes = await this._storage.get('notas');
+    this.pendingNotes = notes.length
+  }
+
+
+
 
 }

@@ -187,8 +187,14 @@ transform:rotateY(65deg) rotateX(54deg);
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+.fastview {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .header4 {
-  text-align: center;
+  text-align: left;
   margin-left: 5px;
   color: rgb(21, 102, 177);
   text-shadow: 1px 0 3px;
@@ -197,12 +203,13 @@ transform:rotateY(65deg) rotateX(54deg);
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 #events {
-  text-align: center;
+  text-align: left;
   padding: 0;
   margin-left: 5px;
   margin-bottom: 1px;
   line-height: 5px;
   color: rgb(156, 96, 27);
   font-size: 12px;
+  cursor: pointer;
 }
 
