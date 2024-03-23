@@ -72,7 +72,11 @@ export class Tab5Page implements OnInit {
     window.location.reload();
     setTimeout(() => {
       event.target.complete();
-    }, 2000);
+    }, 1000);
+  }
+
+  trackByFn(index, item ) {
+    return( item.id );
   }
 
 }

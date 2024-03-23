@@ -28,7 +28,7 @@
     </ion-col>
   </ion-row>
 
-  <ion-list class="list" *ngFor="let item of listaAlmacenada[0]; let i = index; trackBy:trackItems">
+  <ion-list class="list" *ngFor="let item of listaAlmacenada[0]; trackBy: trackByFn; let i = index;">
     <ion-item
       class="task"
       id="{{item._id}}"

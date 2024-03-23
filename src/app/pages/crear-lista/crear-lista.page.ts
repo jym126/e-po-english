@@ -49,7 +49,7 @@ export class CrearListaPage implements OnInit {
     this.router.navigate(['tabs/tab5']);
     setTimeout(() => {
       window.location.reload();
-    }, 2000);
+    }, 1000);
   }
 
   actualizarLista() {
@@ -66,6 +66,6 @@ export class CrearListaPage implements OnInit {
     this.router.navigate(['tabs/tab5']);
     setTimeout(() => {
       window.location.reload();
-    }, 2000);
+    }, 1000);
   }
 }
