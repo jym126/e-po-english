@@ -53,7 +53,6 @@ export class ContactosService {
     }
     this._storage.set('contactos', this.contactos);
     this.router.navigateByUrl('tabs/tab3');
-    console.log(this.contactos);
     return this.contactos;
   }
 
