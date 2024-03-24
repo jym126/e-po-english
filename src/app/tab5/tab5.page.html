@@ -41,6 +41,7 @@
         slot="end"
         name="create-outline"
         color="tertiary"
+
         (click)="actualizarLista(item)"
       >
       </ion-icon>
@@ -48,6 +49,7 @@
         color="danger"
         slot="end"
         name="trash"
+
         (click)="presentListConfirm(item._id, item.nombre)"
       ></ion-icon>
     </ion-item>

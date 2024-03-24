@@ -1,15 +1,18 @@
 
   <ion-content>
     <ion-item>
-      <ion-label position="stacked">Title</ion-label><br>
+      <ion-label class="inputText" position="stacked">Title</ion-label><br>
       <ion-input
+      class="inputText2"
       tpye="text" [(ngModel)]="event.title"
-      style="background-color: aliceblue">
+      style="background-color: aliceblue"
+      placeholder="Title">
     </ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="stacked">Description</ion-label>
+      <ion-label class="inputText" position="stacked">Description</ion-label>
       <ion-textarea
+      class="inputText2"
       type="text" [(ngModel)]="event.desc"
       spellcheck="true"
       style="background-color: aliceblue"
@@ -27,7 +30,7 @@
               doneText="ok"
               (ionChange) = "onTimeSelected($event)"
               >
-              <span slot="title">My Calendar</span>
+              <span slot="title" class="cTitle">My Calendar</span>
               <span slot="time-label">Time</span>
             </ion-datetime>
 
